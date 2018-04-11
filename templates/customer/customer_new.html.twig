@@ -1,0 +1,12 @@
+{% extends "customer/layout_customer.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="mx-auto col-md-6">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            <a class=" btn badge-info" href="{{ path('home_paginated') }}">Back</a>
+        </div>
+    </div>
+
+{% endblock %}

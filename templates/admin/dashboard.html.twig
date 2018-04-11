@@ -1,0 +1,37 @@
+{% extends "admin/layout_admin.html.twig" %}
+
+{% block body %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <a class="btn btn-info" href="{{ path('add_user') }}"><i class="fa fa-plus" ></i>Ajouter un utilisateur</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Date d'inscription</th>
+                        <th>Rôles</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.registerDate | date ('d/m/Y') }}</td>
+                        <td>{% for role in user.roles %}{{ role }}{% endfor %}</td>
+                        <td><a class ="btn btn-danger fa fa-trash " href="{{ path('delete_user',{'id':user.id}) }}"> DELETE</a></td>
+                        <td><a class ="btn btn-success fa fa-edit" href="{{ path('edit_user',{'id':user.id}) }}">EDIT</a> </td>
+                    </tr>
+                   {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+
+{% endblock %}
