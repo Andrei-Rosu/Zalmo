@@ -84,17 +84,19 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
                 echo "\" class=\"btn btn-danger\">Delete</a>
                 </div>
                     ";
-            } elseif ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
                 // line 22
+                echo "                    ";
+            } elseif (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER"))) {
+                // line 23
                 echo "                    <div class=\"card-footer\">
                         <a class=\"btn btn-success\" href=\"";
-                // line 23
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_loan", array("id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", array()))), "html", null, true);
-                echo "\">Transaction</a>
+                // line 24
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_transaction", array("id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", array()))), "html", null, true);
+                echo "\">Add to cart</a>
                     </div>
                 ";
             }
-            // line 26
+            // line 27
             echo "            </div>
         </div>
     ";
@@ -102,16 +104,16 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 30
         echo "</div>
 <!-- /.row -->
 
     ";
-        // line 32
-        if (twig_get_attribute($this->env, $this->source, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 32, $this->source); })()), "haveToPaginate", array())) {
-            // line 33
+        // line 33
+        if (twig_get_attribute($this->env, $this->source, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 33, $this->source); })()), "haveToPaginate", array())) {
+            // line 34
             echo "        ";
-            echo $this->extensions['WhiteOctober\PagerfantaBundle\Twig\PagerfantaExtension']->renderPagerfanta((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 33, $this->source); })()), "twitter_bootstrap4", array("routeName" => (isset($context["routeName"]) || array_key_exists("routeName", $context) ? $context["routeName"] : (function () { throw new Twig_Error_Runtime('Variable "routeName" does not exist.', 33, $this->source); })())));
+            echo $this->extensions['WhiteOctober\PagerfantaBundle\Twig\PagerfantaExtension']->renderPagerfanta((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 34, $this->source); })()), "twitter_bootstrap4", array("routeName" => (isset($context["routeName"]) || array_key_exists("routeName", $context) ? $context["routeName"] : (function () { throw new Twig_Error_Runtime('Variable "routeName" does not exist.', 34, $this->source); })())));
             echo "
     ";
         }
@@ -135,7 +137,7 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
 
     public function getDebugInfo()
     {
-        return array (  113 => 33,  111 => 32,  106 => 29,  98 => 26,  92 => 23,  89 => 22,  83 => 19,  79 => 18,  76 => 17,  74 => 16,  70 => 14,  59 => 12,  55 => 11,  50 => 9,  46 => 8,  41 => 6,  37 => 4,  33 => 3,  29 => 1,);
+        return array (  115 => 34,  113 => 33,  108 => 30,  100 => 27,  94 => 24,  91 => 23,  88 => 22,  83 => 19,  79 => 18,  76 => 17,  74 => 16,  70 => 14,  59 => 12,  55 => 11,  50 => 9,  46 => 8,  41 => 6,  37 => 4,  33 => 3,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -160,9 +162,10 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
                     <a href=\"{{ path('edit_product', {'id': product.id}) }}\" class=\"btn btn-primary\">Edit</a>
                     <a href=\"{{ path('delete_product', {'id': product.id}) }}\" class=\"btn btn-danger\">Delete</a>
                 </div>
-                    {% elseif is_granted('ROLE_USER')%}
+                    {#{% else is_granted('ROLE_USER')%}#}
+                    {% elseif is_granted('ROLE_CUSTOMER') or is_granted('ROLE_USER')%}
                     <div class=\"card-footer\">
-                        <a class=\"btn btn-success\" href=\"{{ path('add_loan', {'id': product.id}) }}\">Transaction</a>
+                        <a class=\"btn btn-success\" href=\"{{ path('add_transaction', {'id': product.id}) }}\">Add to cart</a>
                     </div>
                 {% endif %}
             </div>
@@ -173,6 +176,6 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
 
     {%  if products.haveToPaginate %}
         {{ pagerfanta(products,'twitter_bootstrap4',{'routeName': routeName}) }}
-    {% endif %}", "incs/product_list.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/incs/product_list.html.twig");
+    {% endif %}", "incs/product_list.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/incs/product_list.html.twig");
     }
 }

@@ -41,11 +41,22 @@
                 </li>
                 {% if is_granted('ROLE_USER') %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('product_paginated') }}"> My Products</a>
+                    <a class="nav-link" href="{{ path('product_paginated') }}"> My Shop</a>
                 </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('product_paginated') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My shopping cart</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('logout') }}"> Disconnect</a>
                     </li>
+                    {% elseif is_granted ('ROLE_CUSTOMER')%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('product_paginated') }}" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> My shopping cart</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('logout') }}"> Disconnect</a>
+                    </li>
+
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('login') }}"> Connectez-vous</a>

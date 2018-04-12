@@ -52,8 +52,16 @@ class UserFixtures extends Fixture
         $custo->setPassword(password_hash('admin', PASSWORD_BCRYPT));
         $custo->setEmail('jamaikan80@yahoo.com');
         $custo->setRegisterDate(new\DateTime('now'));
-        $custo->setRoles('ROLE_USER|ROLE_CUSTOMER');
+        $custo->setRoles('ROLE_CUSTOMER');
         $manager->persist($custo);
+
+        $owner = new User();
+        $owner->setUsername('owner');
+        $owner->setPassword(password_hash('admin', PASSWORD_BCRYPT));
+        $owner->setEmail('jamaica80@yahoo.com');
+        $owner->setRegisterDate(new\DateTime('now'));
+        $owner->setRoles('ROLE_USER');
+        $manager->persist($owner);
         // flush() valide les requêtes SQL et les execute
         $manager->flush();
     }

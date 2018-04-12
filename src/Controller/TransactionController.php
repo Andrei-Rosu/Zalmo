@@ -25,7 +25,7 @@ class TransactionController extends Controller
         $transaction->setDateStart(new \DateTime('now'))
             ->setStatus('pending')
             ->setProduct($product)
-            ->settransactioner($this->getUser());
+            ->setTransactioner($this->getUser());
         $manager->persist($transaction);
         $manager->flush();
         return $this->redirectToRoute('edit_transaction', ['id' => $transaction->getId()]);
