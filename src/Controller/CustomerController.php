@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\CustomerType;
 use App\Form\UserType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -20,7 +21,7 @@ class CustomerController extends Controller
         if($user === null){
             $user = new User();
         }
-        $formUser = $this->createForm(UserType::class, $user)
+        $formUser = $this->createForm(CustomerType::class, $user)
             ->add('Submit', SubmitType::class);
 
 
