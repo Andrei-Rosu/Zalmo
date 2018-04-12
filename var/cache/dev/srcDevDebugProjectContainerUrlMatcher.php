@@ -85,15 +85,15 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/lo')) {
-            if (0 === strpos($pathinfo, '/loan')) {
+            if (0 === strpos($pathinfo, '/transaction')) {
                 // add_loan
-                if (preg_match('#^/loan/(?P<id>[^/]++)/add$#sD', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_loan')), array (  '_controller' => 'App\\Controller\\LoanController::add',));
+                if (preg_match('#^/transaction/(?P<id>[^/]++)/add$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_loan')), array (  '_controller' => 'App\\Controller\\TransactionController::add',));
                 }
 
                 // edit_loan
-                if (0 === strpos($pathinfo, '/loan/edit') && preg_match('#^/loan/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_loan')), array (  '_controller' => 'App\\Controller\\LoanController::edit',));
+                if (0 === strpos($pathinfo, '/transaction/edit') && preg_match('#^/transaction/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_loan')), array (  '_controller' => 'App\\Controller\\TransactionController::edit',));
                 }
 
             }

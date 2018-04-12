@@ -237,3 +237,5 @@ f823ed,::1,GET,http://localhost:8080/home/page7,1523460514,,200
 d66a65,::1,GET,http://localhost:8080/product,1523460649,,301
 581652,::1,GET,http://localhost:8080/product/,1523460649,,200
 158490,::1,GET,http://localhost:8080/home/page,1523518588,,200
+487aea,::1,GET,http://localhost:8080/home/page,1523521108,,200
+5cb6d0,::1,GET,http://localhost:8080/home/page8,1523521120,,200

@@ -339,9 +339,6 @@
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
-    <service id="App\Controller\LoanController" class="App\Controller\LoanController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-    </service>
     <service id="App\Controller\ProductController" class="App\Controller\ProductController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -349,6 +346,9 @@
       <tag name="controller.service_arguments"/>
     </service>
     <service id="App\Controller\TagController" class="App\Controller\TagController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
+    <service id="App\Controller\TransactionController" class="App\Controller\TransactionController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
     <service id="App\DataFixtures\ProductFixtures" class="App\DataFixtures\ProductFixtures" public="false" autowire="true" autoconfigure="true">
@@ -366,25 +366,25 @@
     <service id="App\Form\CustomerType" class="App\Form\CustomerType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\LoanType" class="App\Form\LoanType" public="false" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
     <service id="App\Form\ProductType" class="App\Form\ProductType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="App\DataTransformers\TagTransformer"/>
     </service>
-    <service id="App\Form\UserType" class="App\Form\UserType" public="false" autowire="true" autoconfigure="true">
+    <service id="App\Form\TransactionType" class="App\Form\TransactionType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Repository\LoanRepository" class="App\Repository\LoanRepository" public="false" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
+    <service id="App\Form\UserType" class="App\Form\UserType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="App\Repository\ProductRepository" class="App\Repository\ProductRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\TagRepository" class="App\Repository\TagRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TransactionRepository" class="App\Repository\TransactionRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -408,7 +408,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.RPGFYMA"/>
+      <argument type="service" id="service_locator.UIpS5zY"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -644,8 +644,8 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\CustomerType</argument>
-        <argument>App\Form\LoanType</argument>
         <argument>App\Form\ProductType</argument>
+        <argument>App\Form\TransactionType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -852,7 +852,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.qDIWtRU"/>
+      <argument type="service" id="service_locator.pY_DBlJ"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -1907,6 +1907,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2472,7 +2480,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id="service_locator.tmpzWMd"/>
+      <argument type="service" id="service_locator.iga40mC"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3892,14 +3900,14 @@
     <service id="abstract.instanceof.App\Controller\CustomerController" class="App\Controller\CustomerController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\LoanController" class="App\Controller\LoanController" public="false" autowire="true" abstract="true"/>
-    <service id="abstract.instanceof.App\Controller\LoanController" class="App\Controller\LoanController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\ProductController" class="App\Controller\ProductController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\TagController" class="App\Controller\TagController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\TagController" class="App\Controller\TagController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\TransactionController" class="App\Controller\TransactionController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\TransactionController" class="App\Controller\TransactionController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ProductFixtures" class="App\DataFixtures\ProductFixtures" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\DataFixtures\ProductFixtures" class="App\DataFixtures\ProductFixtures" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\TagFixtures" class="App\DataFixtures\TagFixtures" public="false" autowire="true" abstract="true"/>
@@ -3908,18 +3916,18 @@
     <service id="abstract.instanceof.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CustomerType" class="App\Form\CustomerType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\CustomerType" class="App\Form\CustomerType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LoanType" class="App\Form\LoanType" public="false" autowire="true" abstract="true"/>
-    <service id="abstract.instanceof.App\Form\LoanType" class="App\Form\LoanType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductType" class="App\Form\ProductType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ProductType" class="App\Form\ProductType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TransactionType" class="App\Form\TransactionType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\TransactionType" class="App\Form\TransactionType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\UserType" class="App\Form\UserType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LoanRepository" class="App\Repository\LoanRepository" public="false" autowire="true" abstract="true"/>
-    <service id="abstract.instanceof.App\Repository\LoanRepository" class="App\Repository\LoanRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProductRepository" class="App\Repository\ProductRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ProductRepository" class="App\Repository\ProductRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TagRepository" class="App\Repository\TagRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\TagRepository" class="App\Repository\TagRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TransactionRepository" class="App\Repository\TransactionRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\TransactionRepository" class="App\Repository\TransactionRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
@@ -4066,18 +4074,6 @@
         <argument key="productRepo" type="service" id="App\Repository\ProductRepository" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.Giy20ue" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
-      </argument>
-    </service>
-    <service id="service_locator.8g9zpHE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
-      </argument>
-    </service>
     <service id="service_locator.4kt5kzb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4108,7 +4104,19 @@
         <argument key="tagRepo" type="service" id="App\Repository\TagRepository" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.RPGFYMA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.rywQS9C" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.IGMCTmj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.UIpS5zY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController:deleteUser" type="service" id="service_locator.g4MUsbG"/>
@@ -4116,27 +4124,27 @@
         <argument key="App\Controller\AdminController:index" type="service" id="service_locator.u1Jd59A"/>
         <argument key="App\Controller\CustomerController:registerCustomer" type="service" id="service_locator.V7xd8Gh"/>
         <argument key="App\Controller\HomeController:index" type="service" id="service_locator.BHIn3hZ"/>
-        <argument key="App\Controller\LoanController:add" type="service" id="service_locator.Giy20ue"/>
-        <argument key="App\Controller\LoanController:edit" type="service" id="service_locator.8g9zpHE"/>
         <argument key="App\Controller\ProductController:deleteProduct" type="service" id="service_locator.cwYPq6f"/>
         <argument key="App\Controller\ProductController:editProduct" type="service" id="service_locator.cwYPq6f"/>
         <argument key="App\Controller\ProductController:index" type="service" id="service_locator.4kt5kzb"/>
         <argument key="App\Controller\SecurityController:login" type="service" id="service_locator.ltE88OR"/>
         <argument key="App\Controller\TagController:product" type="service" id="service_locator.Ly3VALB"/>
         <argument key="App\Controller\TagController:search" type="service" id="service_locator.TrB_07B"/>
+        <argument key="App\Controller\TransactionController:add" type="service" id="service_locator.rywQS9C"/>
+        <argument key="App\Controller\TransactionController:edit" type="service" id="service_locator.IGMCTmj"/>
         <argument key="App\Controller\AdminController::deleteUser" type="service" id="service_locator.g4MUsbG"/>
         <argument key="App\Controller\AdminController::editUser" type="service" id="service_locator.g4MUsbG"/>
         <argument key="App\Controller\AdminController::index" type="service" id="service_locator.u1Jd59A"/>
         <argument key="App\Controller\CustomerController::registerCustomer" type="service" id="service_locator.V7xd8Gh"/>
         <argument key="App\Controller\HomeController::index" type="service" id="service_locator.BHIn3hZ"/>
-        <argument key="App\Controller\LoanController::add" type="service" id="service_locator.Giy20ue"/>
-        <argument key="App\Controller\LoanController::edit" type="service" id="service_locator.8g9zpHE"/>
         <argument key="App\Controller\ProductController::deleteProduct" type="service" id="service_locator.cwYPq6f"/>
         <argument key="App\Controller\ProductController::editProduct" type="service" id="service_locator.cwYPq6f"/>
         <argument key="App\Controller\ProductController::index" type="service" id="service_locator.4kt5kzb"/>
         <argument key="App\Controller\SecurityController::login" type="service" id="service_locator.ltE88OR"/>
         <argument key="App\Controller\TagController::product" type="service" id="service_locator.Ly3VALB"/>
         <argument key="App\Controller\TagController::search" type="service" id="service_locator.TrB_07B"/>
+        <argument key="App\Controller\TransactionController::add" type="service" id="service_locator.rywQS9C"/>
+        <argument key="App\Controller\TransactionController::edit" type="service" id="service_locator.IGMCTmj"/>
       </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -4293,24 +4301,24 @@
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
-    <service id="service_locator.qDIWtRU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.pY_DBlJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CustomerType" type="service" id="App\Form\CustomerType"/>
-        <argument key="App\Form\LoanType" type="service" id="App\Form\LoanType"/>
         <argument key="App\Form\ProductType" type="service" id="App\Form\ProductType"/>
+        <argument key="App\Form\TransactionType" type="service" id="App\Form\TransactionType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id="service_locator.tmpzWMd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.iga40mC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\LoanRepository" type="service" id="App\Repository\LoanRepository"/>
         <argument key="App\Repository\ProductRepository" type="service" id="App\Repository\ProductRepository"/>
         <argument key="App\Repository\TagRepository" type="service" id="App\Repository\TagRepository"/>
+        <argument key="App\Repository\TransactionRepository" type="service" id="App\Repository\TransactionRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>

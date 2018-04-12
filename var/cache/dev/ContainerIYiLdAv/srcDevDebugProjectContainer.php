@@ -59,7 +59,7 @@ class srcDevDebugProjectContainer extends Container
             'App\\Controller\\AdminController' => __DIR__.'/getAdminControllerService.php',
             'App\\Controller\\CustomerController' => __DIR__.'/getCustomerControllerService.php',
             'App\\Controller\\HomeController' => __DIR__.'/getHomeControllerService.php',
-            'App\\Controller\\LoanController' => __DIR__.'/getLoanControllerService.php',
+            'App\\Controller\\TransactionController' => __DIR__.'/getLoanControllerService.php',
             'App\\Controller\\ProductController' => __DIR__.'/getProductControllerService.php',
             'App\\Controller\\SecurityController' => __DIR__.'/getSecurityControllerService.php',
             'App\\Controller\\TagController' => __DIR__.'/getTagControllerService.php',

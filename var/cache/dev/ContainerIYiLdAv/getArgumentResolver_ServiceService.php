@@ -18,9 +18,9 @@ return $this->privates['argument_resolver.service'] = new \Symfony\Component\Htt
     return ($this->privates['service_locator.V7xd8Gh'] ?? $this->load(__DIR__.'/getServiceLocator_V7xd8GhService.php'));
 }, 'App\\Controller\\HomeController:index' => function () {
     return ($this->privates['service_locator.BHIn3hZ'] ?? $this->load(__DIR__.'/getServiceLocator_BHIn3hZService.php'));
-}, 'App\\Controller\\LoanController:add' => function () {
+}, 'App\\Controller\\TransactionController:add' => function () {
     return ($this->privates['service_locator.Giy20ue'] ?? $this->load(__DIR__.'/getServiceLocator_Giy20ueService.php'));
-}, 'App\\Controller\\LoanController:edit' => function () {
+}, 'App\\Controller\\TransactionController:edit' => function () {
     return ($this->privates['service_locator.8g9zpHE'] ?? $this->load(__DIR__.'/getServiceLocator_8g9zpHEService.php'));
 }, 'App\\Controller\\ProductController:deleteProduct' => function () {
     return ($this->privates['service_locator.cwYPq6f'] ?? $this->load(__DIR__.'/getServiceLocator_CwYPq6fService.php'));
@@ -44,9 +44,9 @@ return $this->privates['argument_resolver.service'] = new \Symfony\Component\Htt
     return ($this->privates['service_locator.V7xd8Gh'] ?? $this->load(__DIR__.'/getServiceLocator_V7xd8GhService.php'));
 }, 'App\\Controller\\HomeController::index' => function () {
     return ($this->privates['service_locator.BHIn3hZ'] ?? $this->load(__DIR__.'/getServiceLocator_BHIn3hZService.php'));
-}, 'App\\Controller\\LoanController::add' => function () {
+}, 'App\\Controller\\TransactionController::add' => function () {
     return ($this->privates['service_locator.Giy20ue'] ?? $this->load(__DIR__.'/getServiceLocator_Giy20ueService.php'));
-}, 'App\\Controller\\LoanController::edit' => function () {
+}, 'App\\Controller\\TransactionController::edit' => function () {
     return ($this->privates['service_locator.8g9zpHE'] ?? $this->load(__DIR__.'/getServiceLocator_8g9zpHEService.php'));
 }, 'App\\Controller\\ProductController::deleteProduct' => function () {
     return ($this->privates['service_locator.cwYPq6f'] ?? $this->load(__DIR__.'/getServiceLocator_CwYPq6fService.php'));

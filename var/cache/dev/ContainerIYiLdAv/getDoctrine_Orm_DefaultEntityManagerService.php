@@ -42,8 +42,8 @@ $b->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
 $b->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
 $b->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
 $b->setEntityListenerResolver(new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver($this));
-$b->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Repository\\LoanRepository' => function () {
-    return ($this->privates['App\Repository\LoanRepository'] ?? $this->load(__DIR__.'/getLoanRepositoryService.php'));
+$b->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Repository\\TransactionRepository' => function () {
+    return ($this->privates['App\Repository\TransactionRepository'] ?? $this->load(__DIR__.'/getLoanRepositoryService.php'));
 }, 'App\\Repository\\ProductRepository' => function () {
     return ($this->privates['App\Repository\ProductRepository'] ?? $this->load(__DIR__.'/getProductRepositoryService.php'));
 }, 'App\\Repository\\TagRepository' => function () {

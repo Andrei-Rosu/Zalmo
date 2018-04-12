@@ -90,7 +90,7 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
                         <a class=\"btn btn-success\" href=\"";
                 // line 23
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_loan", array("id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", array()))), "html", null, true);
-                echo "\">Loan</a>
+                echo "\">Transaction</a>
                     </div>
                 ";
             }
@@ -162,7 +162,7 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
                 </div>
                     {% elseif is_granted('ROLE_USER')%}
                     <div class=\"card-footer\">
-                        <a class=\"btn btn-success\" href=\"{{ path('add_loan', {'id': product.id}) }}\">Loan</a>
+                        <a class=\"btn btn-success\" href=\"{{ path('add_loan', {'id': product.id}) }}\">Transaction</a>
                     </div>
                 {% endif %}
             </div>

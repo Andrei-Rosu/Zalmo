@@ -12,8 +12,8 @@ include_once $this->targetDirs[3].'/vendor/symfony/form/FormRegistry.php';
 
 return $this->privates['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Form\\CustomerType' => function () {
     return ($this->privates['App\Form\CustomerType'] ?? $this->privates['App\Form\CustomerType'] = new \App\Form\CustomerType());
-}, 'App\\Form\\LoanType' => function () {
-    return ($this->privates['App\Form\LoanType'] ?? $this->privates['App\Form\LoanType'] = new \App\Form\LoanType());
+}, 'App\\Form\\TransactionType' => function () {
+    return ($this->privates['App\Form\TransactionType'] ?? $this->privates['App\Form\TransactionType'] = new \App\Form\TransactionType());
 }, 'App\\Form\\ProductType' => function () {
     return ($this->privates['App\Form\ProductType'] ?? $this->load(__DIR__.'/getProductTypeService.php'));
 }, 'App\\Form\\UserType' => function () {
