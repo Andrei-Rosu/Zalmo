@@ -41,6 +41,10 @@ class Product
      */
 
     private $image;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="products")
@@ -55,6 +59,11 @@ class Product
      */
 
     private $tags;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date_transaction;
 
 
     /**
@@ -171,6 +180,45 @@ class Product
         $this->transactions = $transactions;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateTransaction()
+    {
+        return $this->date_transaction;
+    }
+
+    /**
+     * @param mixed $date_transaction
+     * @return Product
+     */
+    public function setDateTransaction($date_transaction)
+    {
+        $this->date_transaction = $date_transaction;
+        return $this;
+    }
+
+
+
 
 
 

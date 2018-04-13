@@ -14,6 +14,7 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
         $this->parent = false;
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -36,7 +37,7 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
     <meta name=\"description\" content=\"\">
     <meta name=\"author\" content=\"\">
-    <title>SB Admin - Start Bootstrap Template</title>
+    <title>Zalmo - la maison du bio</title>
     <!-- Bootstrap core CSS-->
     <link href=\"";
         // line 12
@@ -57,65 +58,107 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
         // line 18
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/css/sb-admin.css\" rel=\"stylesheet"), "html", null, true);
         echo "\">
-</head>
+    <link href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/heroic-features.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+    ";
+        // line 20
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 21
+        echo "</head>
 
-<body class=\"fixed-nav sticky-footer bg-dark\" id=\"page-top\">
+<body class=\" sticky-footer bg-dark\">
+<div class=\"container\">
+
 <!-- Navigation-->
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\" id=\"mainNav\">
-    <a class=\"navbar-brand\" href=\"";
-        // line 24
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home_paginated");
-        echo "\">Zalmo</a>
-    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-        <span class=\"navbar-toggler-icon\"></span>
-    </button>
-    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
-        <ul class=\"navbar-nav navbar-sidenav\" id=\"exampleAccordion\">
-            <li class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
-                <a class=\"nav-link\" href=\"";
-        // line 31
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_dashboard");
-        echo "\">
-                    <i class=\"fa fa-fw fa-dashboard\"></i>
-                    <span class=\"nav-link-text\">Dashboard</span>
-                </a>
-            </li>
 
-            <li class=\"nav-item\">
-                <form class=\"form-inline my-2 my-lg-0 mr-lg-2\">
-                    <div class=\"input-group\">
-                        <input class=\"form-control\" type=\"text\" placeholder=\"Search for...\">
-                        <span class=\"input-group-append\">
-                <button class=\"btn btn-primary\" type=\"button\">
-                  <i class=\"fa fa-search\"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-            </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" data-toggle=\"modal\" data-target=\"#logoutModal\">
-                    <i class=\"fa fa-fw fa-sign-out\"></i>Logout</a>
-            </li>
-        </ul>
-    </div>
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">
+
+        <a class=\"navbar-brand\" href=\"#\">Welcome</a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
+            <ul class=\"navbar-nav ml-auto\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"";
+        // line 37
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">Accueil
+                        <span class=\"sr-only\">(current)</span>
+                    </a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"";
+        // line 42
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer");
+        echo "\">Creer son boutique</a>
+                </li>
+                ";
+        // line 44
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
+            // line 45
+            echo "                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 46
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
+            echo "\"> Ma boutique</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 49
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
+            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 52
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\"> Déconnexion</a>
+                    </li>
+                ";
+        } elseif ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER")) {
+            // line 55
+            echo "                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 56
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
+            echo "\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 59
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\"> Déconnexion</a>
+                    </li>
+
+                ";
+        } else {
+            // line 63
+            echo "                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 64
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
+            echo "\"> Connectez-vous</a>
+                    </li>
+                ";
+        }
+        // line 67
+        echo "                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
+                </li>
+            </ul>
+        </div>
+
 </nav>
-<div class=\"content-wrapper\">
-    <div class=\"container-fluid\">
-        <!-- Breadcrumbs-->
-        <ol class=\"breadcrumb\">
-            <li class=\"breadcrumb-item\">
-                <a href=\"#\">Dashboard</a>
-            </li>
-            <li class=\"breadcrumb-item active\">Tables</li>
-        </ol>
+
         <!-- Example DataTables Card-->
         ";
-        // line 66
+        // line 76
         $this->displayBlock('body', $context, $blocks);
-        // line 67
-        echo "    </div>
-</div>
+        // line 77
+        echo "
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->
 <footer class=\"sticky-footer\">
@@ -126,61 +169,39 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
     </div>
 </footer>
 <!-- Scroll to Top Button-->
-<a class=\"scroll-to-top rounded\" href=\"#page-top\">
-    <i class=\"fa fa-angle-up\"></i>
-</a>
-<!-- Logout Modal-->
-<div class=\"modal fade\" id=\"logoutModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
-    <div class=\"modal-dialog\" role=\"document\">
-        <div class=\"modal-content\">
-            <div class=\"modal-header\">
-                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Ready to Leave?</h5>
-                <button class=\"close\" type=\"button\" data-dismiss=\"modal\" aria-label=\"Close\">
-                    <span aria-hidden=\"true\">×</span>
-                </button>
-            </div>
-            <div class=\"modal-body\">Select \"Logout\" below if you are ready to end your current session.</div>
-            <div class=\"modal-footer\">
-                <button class=\"btn btn-secondary\" type=\"button\" data-dismiss=\"modal\">Cancel</button>
-                <a class=\"btn btn-primary\" href=\"";
-        // line 95
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-        echo "\">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 <!-- Bootstrap core JavaScript-->
 <script src=\"";
-        // line 101
+        // line 91
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 102
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
 <!-- Core plugin JavaScript-->
 <script src=\"";
-        // line 104
+        // line 94
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery-easing/jquery.easing.min.js"), "html", null, true);
         echo "\"></script>
 <!-- Page level plugin JavaScript-->
 <script src=\"";
-        // line 106
+        // line 96
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables/jquery.dataTables.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 107
+        // line 97
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables/dataTables.bootstrap4.js"), "html", null, true);
         echo "\"></script>
 <!-- Custom scripts for all pages-->
 <script src=\"";
-        // line 109
+        // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/sb-admin.min.js"), "html", null, true);
         echo "\"></script>
 <!-- Custom scripts for this page-->
 <script src=\"";
-        // line 111
+        // line 101
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/sb-admin-datatables.min.js"), "html", null, true);
         echo "\"></script>
 </div>
@@ -196,7 +217,24 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
 
     }
 
-    // line 66
+    // line 20
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 76
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -225,7 +263,7 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
 
     public function getDebugInfo()
     {
-        return array (  200 => 66,  184 => 111,  179 => 109,  174 => 107,  170 => 106,  165 => 104,  160 => 102,  156 => 101,  147 => 95,  117 => 67,  115 => 66,  77 => 31,  67 => 24,  58 => 18,  53 => 16,  48 => 14,  43 => 12,  30 => 1,);
+        return array (  238 => 76,  221 => 20,  205 => 101,  200 => 99,  195 => 97,  191 => 96,  186 => 94,  181 => 92,  177 => 91,  161 => 77,  159 => 76,  148 => 67,  142 => 64,  139 => 63,  132 => 59,  126 => 56,  123 => 55,  117 => 52,  111 => 49,  105 => 46,  102 => 45,  100 => 44,  95 => 42,  87 => 37,  69 => 21,  67 => 20,  63 => 19,  59 => 18,  54 => 16,  49 => 14,  44 => 12,  31 => 1,);
     }
 
     public function getSourceContext()
@@ -239,7 +277,7 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
     <meta name=\"description\" content=\"\">
     <meta name=\"author\" content=\"\">
-    <title>SB Admin - Start Bootstrap Template</title>
+    <title>Zalmo - la maison du bio</title>
     <!-- Bootstrap core CSS-->
     <link href=\"{{  asset('vendor/bootstrap/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
     <!-- Custom fonts for this template-->
@@ -248,56 +286,65 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
     <link href=\"{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}\" rel=\"stylesheet\">
     <!-- Custom styles for this template-->
     <link href=\"{{ asset('vendor/css/sb-admin.css\" rel=\"stylesheet') }}\">
+    <link href=\"{{ asset('css/heroic-features.css')}}\" rel=\"stylesheet\">
+    {% block stylesheets %}{% endblock %}
 </head>
 
-<body class=\"fixed-nav sticky-footer bg-dark\" id=\"page-top\">
-<!-- Navigation-->
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\" id=\"mainNav\">
-    <a class=\"navbar-brand\" href=\"{{ path('home_paginated') }}\">Zalmo</a>
-    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-        <span class=\"navbar-toggler-icon\"></span>
-    </button>
-    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
-        <ul class=\"navbar-nav navbar-sidenav\" id=\"exampleAccordion\">
-            <li class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
-                <a class=\"nav-link\" href=\"{{ path('admin_dashboard') }}\">
-                    <i class=\"fa fa-fw fa-dashboard\"></i>
-                    <span class=\"nav-link-text\">Dashboard</span>
-                </a>
-            </li>
+<body class=\" sticky-footer bg-dark\">
+<div class=\"container\">
 
-            <li class=\"nav-item\">
-                <form class=\"form-inline my-2 my-lg-0 mr-lg-2\">
-                    <div class=\"input-group\">
-                        <input class=\"form-control\" type=\"text\" placeholder=\"Search for...\">
-                        <span class=\"input-group-append\">
-                <button class=\"btn btn-primary\" type=\"button\">
-                  <i class=\"fa fa-search\"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-            </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" data-toggle=\"modal\" data-target=\"#logoutModal\">
-                    <i class=\"fa fa-fw fa-sign-out\"></i>Logout</a>
-            </li>
-        </ul>
-    </div>
+<!-- Navigation-->
+
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">
+
+        <a class=\"navbar-brand\" href=\"#\">Welcome</a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
+            <ul class=\"navbar-nav ml-auto\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"{{ path('home') }}\">Accueil
+                        <span class=\"sr-only\">(current)</span>
+                    </a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"{{ path('customer') }}\">Creer son boutique</a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"> Ma boutique</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
+                    </li>
+                {% elseif is_granted ('ROLE_CUSTOMER')%}
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
+                    </li>
+
+                {% else %}
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('login') }}\"> Connectez-vous</a>
+                    </li>
+                {% endif %}
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
+                </li>
+            </ul>
+        </div>
+
 </nav>
-<div class=\"content-wrapper\">
-    <div class=\"container-fluid\">
-        <!-- Breadcrumbs-->
-        <ol class=\"breadcrumb\">
-            <li class=\"breadcrumb-item\">
-                <a href=\"#\">Dashboard</a>
-            </li>
-            <li class=\"breadcrumb-item active\">Tables</li>
-        </ol>
+
         <!-- Example DataTables Card-->
         {% block body %}{% endblock %}
-    </div>
-</div>
+
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->
 <footer class=\"sticky-footer\">
@@ -308,27 +355,8 @@ class __TwigTemplate_499cfa5e720fa001e137856df3408cdd64da14e032c3d09592b0c7b4917
     </div>
 </footer>
 <!-- Scroll to Top Button-->
-<a class=\"scroll-to-top rounded\" href=\"#page-top\">
-    <i class=\"fa fa-angle-up\"></i>
-</a>
-<!-- Logout Modal-->
-<div class=\"modal fade\" id=\"logoutModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
-    <div class=\"modal-dialog\" role=\"document\">
-        <div class=\"modal-content\">
-            <div class=\"modal-header\">
-                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Ready to Leave?</h5>
-                <button class=\"close\" type=\"button\" data-dismiss=\"modal\" aria-label=\"Close\">
-                    <span aria-hidden=\"true\">×</span>
-                </button>
-            </div>
-            <div class=\"modal-body\">Select \"Logout\" below if you are ready to end your current session.</div>
-            <div class=\"modal-footer\">
-                <button class=\"btn btn-secondary\" type=\"button\" data-dismiss=\"modal\">Cancel</button>
-                <a class=\"btn btn-primary\" href=\"{{ path('logout') }}\">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 <!-- Bootstrap core JavaScript-->
 <script src=\"{{ asset('vendor/jquery/jquery.min.js') }}\"></script>
 <script src=\"{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}\"></script>

@@ -49,13 +49,17 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
             // line 9
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", array()), "html", null, true);
             echo "</p>
+                    <p class=\"card-text\">";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "price", array()), "html", null, true);
+            echo ",00 €</p>
                     <div>
                         ";
-            // line 11
+            // line 12
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["product"], "tags", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
-                // line 12
+                // line 13
                 echo "                            <a href=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tag", array("slug" => twig_get_attribute($this->env, $this->source, $context["tag"], "slug", array()))), "html", null, true);
                 echo "\" class=\"badge badge-pill badge-info\" >#";
@@ -66,27 +70,25 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 14
+            // line 15
             echo "                    </div>
                 </div>
                 ";
-            // line 16
-            if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER") && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "owner", array()), "id", array()) == twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 16, $this->source); })()), "user", array()), "id", array())))) {
-                // line 17
+            // line 17
+            if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER") && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "owner", array()), "id", array()) == twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 17, $this->source); })()), "user", array()), "id", array())))) {
+                // line 18
                 echo "                <div class=\"card-footer\">
                     <a href=\"";
-                // line 18
+                // line 19
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_product", array("id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", array()))), "html", null, true);
                 echo "\" class=\"btn btn-primary\">Edit</a>
                     <a href=\"";
-                // line 19
+                // line 20
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_product", array("id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", array()))), "html", null, true);
                 echo "\" class=\"btn btn-danger\">Delete</a>
                 </div>
                     ";
-                // line 22
-                echo "                    ";
-            } elseif (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER"))) {
+            } else {
                 // line 23
                 echo "                    <div class=\"card-footer\">
                         <a class=\"btn btn-success\" href=\"";
@@ -137,7 +139,7 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
 
     public function getDebugInfo()
     {
-        return array (  115 => 34,  113 => 33,  108 => 30,  100 => 27,  94 => 24,  91 => 23,  88 => 22,  83 => 19,  79 => 18,  76 => 17,  74 => 16,  70 => 14,  59 => 12,  55 => 11,  50 => 9,  46 => 8,  41 => 6,  37 => 4,  33 => 3,  29 => 1,);
+        return array (  117 => 34,  115 => 33,  110 => 30,  102 => 27,  96 => 24,  93 => 23,  87 => 20,  83 => 19,  80 => 18,  78 => 17,  74 => 15,  63 => 13,  59 => 12,  54 => 10,  50 => 9,  46 => 8,  41 => 6,  37 => 4,  33 => 3,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -151,6 +153,7 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
                 <div class=\"card-body\">
                     <h4 class=\"card-title\">{{ product.title }}</h4>
                     <p class=\"card-text\">{{ product.description }}</p>
+                    <p class=\"card-text\">{{ product.price }},00 €</p>
                     <div>
                         {% for tag in product.tags %}
                             <a href=\"{{ path('tag', {'slug' : tag.slug}) }}\" class=\"badge badge-pill badge-info\" >#{{ tag.name }}</a>
@@ -162,8 +165,7 @@ class __TwigTemplate_c8bd4c251b78aac25e4d8be467abd704e4dbb9bb4d627e3bb35769d406f
                     <a href=\"{{ path('edit_product', {'id': product.id}) }}\" class=\"btn btn-primary\">Edit</a>
                     <a href=\"{{ path('delete_product', {'id': product.id}) }}\" class=\"btn btn-danger\">Delete</a>
                 </div>
-                    {#{% else is_granted('ROLE_USER')%}#}
-                    {% elseif is_granted('ROLE_CUSTOMER') or is_granted('ROLE_USER')%}
+                    {% else %}
                     <div class=\"card-footer\">
                         <a class=\"btn btn-success\" href=\"{{ path('add_transaction', {'id': product.id}) }}\">Add to cart</a>
                     </div>

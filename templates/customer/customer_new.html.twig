@@ -1,12 +1,16 @@
 {% extends "customer/layout_customer.html.twig" %}
 {% block body %}
+        <div class="jumbotron-fluid">
+            <p>En premier, on va avoir besoin de quelques informations pour vous connecter à la plateforme</p>
+        </div>
     <div class="row">
         <div class="mx-auto col-md-6">
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
-            <a class=" btn badge-info" href="{{ path('home_paginated') }}">Back</a>
+            <a class=" btn badge-info" href="{{ path('user_productlist') }}">Connectez-vous</a>
         </div>
     </div>
+
 
 {% endblock %}

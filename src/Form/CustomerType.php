@@ -16,6 +16,7 @@ class CustomerType extends AbstractType
     {
         $builder
             ->add('username')
+            ->add('email', EmailType::class)
             ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
@@ -24,7 +25,7 @@ class CustomerType extends AbstractType
                 'first_options'  => array('label' => 'Password'),
                 'second_options' => array('label' => 'Repeat Password'),
             ))
-            ->add('email', EmailType::class)
+
 
         ;
     }

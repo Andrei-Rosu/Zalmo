@@ -22,12 +22,12 @@ class Transaction
     /**
      * @ORM\Column(type="date")
      */
-    private $date_start;
+    private $date_transaction;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="integer")
      */
-    private $date_end;
+    private $price;
 
     /**
      * @ORM\Column(type="string", length=20)
@@ -64,18 +64,6 @@ class Transaction
         return $this;
     }
 
-    public function getDateEnd()
-    {
-        return $this->date_end;
-    }
-
-    public function setDateEnd(?\DateTimeInterface $date_end): self
-    {
-        $this->date_end = $date_end;
-
-        return $this;
-    }
-
     public function getStatus()
     {
         return $this->status;
@@ -85,6 +73,28 @@ class Transaction
     {
         $this->status = $status;
 
+        return $this;
+    }
+
+    public function getDateTransaction()
+    {
+        return $this->date_transaction;
+    }
+
+    public function setDateTransaction($date_transaction)
+    {
+        $this->date_transaction = $date_transaction;
+        return $this;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function setPrice($price)
+    {
+        $this->price = $price;
         return $this;
     }
 

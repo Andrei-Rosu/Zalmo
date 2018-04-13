@@ -345,6 +345,9 @@
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
+    <service id="App\Controller\ShopController" class="App\Controller\ShopController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
     <service id="App\Controller\TagController" class="App\Controller\TagController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -408,7 +411,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.UIpS5zY"/>
+      <argument type="service" id="service_locator.CP9h_yB"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -3281,6 +3284,13 @@
         </argument>
         <argument>null</argument>
       </call>
+      <call method="add">
+        <argument type="service" id="security.request_matcher.xdlVs0g"/>
+        <argument type="collection">
+          <argument>ROLE_CUSTOMER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <tag name="monolog.logger" channel="security"/>
@@ -3760,6 +3770,9 @@
     <service id="security.request_matcher.ZQRVbU3" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/product</argument>
     </service>
+    <service id="security.request_matcher.xdlVs0g" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/transaction</argument>
+    </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>
       <argument type="service" id="security.encoder_factory.generic"/>
@@ -3896,6 +3909,8 @@
     <service id="abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\ShopController" class="App\Controller\ShopController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\ShopController" class="App\Controller\ShopController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\TagController" class="App\Controller\TagController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\TagController" class="App\Controller\TagController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\TransactionController" class="App\Controller\TransactionController" public="false" autowire="true" abstract="true"/>
@@ -4054,9 +4069,10 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.V7xd8Gh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.Qkh2rqa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="encoder" type="service" id="security.user_password_encoder.generic" on-invalid="ignore"/>
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
       </argument>
     </service>
@@ -4108,13 +4124,13 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.UIpS5zY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.CP9h_yB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController:deleteUser" type="service" id="service_locator.g4MUsbG"/>
         <argument key="App\Controller\AdminController:editUser" type="service" id="service_locator.g4MUsbG"/>
         <argument key="App\Controller\AdminController:index" type="service" id="service_locator.u1Jd59A"/>
-        <argument key="App\Controller\CustomerController:registerCustomer" type="service" id="service_locator.V7xd8Gh"/>
+        <argument key="App\Controller\CustomerController:registerCustomer" type="service" id="service_locator.Qkh2rqa"/>
         <argument key="App\Controller\HomeController:index" type="service" id="service_locator.BHIn3hZ"/>
         <argument key="App\Controller\ProductController:deleteProduct" type="service" id="service_locator.cwYPq6f"/>
         <argument key="App\Controller\ProductController:editProduct" type="service" id="service_locator.cwYPq6f"/>
@@ -4127,7 +4143,7 @@
         <argument key="App\Controller\AdminController::deleteUser" type="service" id="service_locator.g4MUsbG"/>
         <argument key="App\Controller\AdminController::editUser" type="service" id="service_locator.g4MUsbG"/>
         <argument key="App\Controller\AdminController::index" type="service" id="service_locator.u1Jd59A"/>
-        <argument key="App\Controller\CustomerController::registerCustomer" type="service" id="service_locator.V7xd8Gh"/>
+        <argument key="App\Controller\CustomerController::registerCustomer" type="service" id="service_locator.Qkh2rqa"/>
         <argument key="App\Controller\HomeController::index" type="service" id="service_locator.BHIn3hZ"/>
         <argument key="App\Controller\ProductController::deleteProduct" type="service" id="service_locator.cwYPq6f"/>
         <argument key="App\Controller\ProductController::editProduct" type="service" id="service_locator.cwYPq6f"/>

@@ -79,12 +79,15 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
                     <a class=\"nav-link\" href=\"";
         // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\">Home
+        echo "\">Accueil
                         <span class=\"sr-only\">(current)</span>
                     </a>
                 </li>
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">About</a>
+                    <a class=\"nav-link\" href=\"";
+        // line 40
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shop");
+        echo "\">Creer son boutique</a>
                 </li>
                 ";
         // line 42
@@ -94,19 +97,19 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
                     <a class=\"nav-link\" href=\"";
             // line 44
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
-            echo "\"> My Shop</a>
+            echo "\"> Ma boutique</a>
                 </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
             // line 47
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
-            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> My shopping cart</a>
+            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
             // line 50
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-            echo "\"> Disconnect</a>
+            echo "\"> Déconnexion</a>
                     </li>
                     ";
         } elseif ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER")) {
@@ -115,13 +118,13 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
                             <a class=\"nav-link\" href=\"";
             // line 54
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
-            echo "\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> My shopping cart</a>
+            echo "\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
                         </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
             // line 57
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-            echo "\"> Disconnect</a>
+            echo "\"> Déconnexion</a>
                     </li>
 
                     ";
@@ -137,7 +140,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
         }
         // line 65
         echo "                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">Contact</a>
+                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
                 </li>
             </ul>
         </div>
@@ -145,7 +148,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 </nav>
 
 <!-- Page Content -->
-<div class=\"container\">
+<div class=\"container-fluid\">
 
     <!-- Jumbotron Header -->
     ";
@@ -273,7 +276,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     public function getDebugInfo()
     {
-        return array (  248 => 94,  231 => 77,  214 => 18,  196 => 11,  181 => 95,  179 => 94,  175 => 93,  171 => 92,  155 => 78,  153 => 77,  139 => 65,  133 => 62,  130 => 61,  123 => 57,  117 => 54,  114 => 53,  108 => 50,  102 => 47,  96 => 44,  93 => 43,  91 => 42,  81 => 35,  63 => 19,  61 => 18,  57 => 17,  51 => 14,  45 => 11,  33 => 1,);
+        return array (  251 => 94,  234 => 77,  217 => 18,  199 => 11,  184 => 95,  182 => 94,  178 => 93,  174 => 92,  158 => 78,  156 => 77,  142 => 65,  136 => 62,  133 => 61,  126 => 57,  120 => 54,  117 => 53,  111 => 50,  105 => 47,  99 => 44,  96 => 43,  94 => 42,  89 => 40,  81 => 35,  63 => 19,  61 => 18,  57 => 17,  51 => 14,  45 => 11,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -312,29 +315,29 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
         <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ml-auto\">
                 <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{ path('home') }}\">Home
+                    <a class=\"nav-link\" href=\"{{ path('home') }}\">Accueil
                         <span class=\"sr-only\">(current)</span>
                     </a>
                 </li>
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">About</a>
+                    <a class=\"nav-link\" href=\"{{ path('shop') }}\">Creer son boutique</a>
                 </li>
                 {% if is_granted('ROLE_USER') %}
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"> My Shop</a>
+                    <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"> Ma boutique</a>
                 </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> My shopping cart</a>
+                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
                     </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Disconnect</a>
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
                     </li>
                     {% elseif is_granted ('ROLE_CUSTOMER')%}
                         <li class=\"nav-item\">
-                            <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> My shopping cart</a>
+                            <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
                         </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Disconnect</a>
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
                     </li>
 
                     {% else %}
@@ -343,7 +346,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
                         </li>
                 {% endif %}
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">Contact</a>
+                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
                 </li>
             </ul>
         </div>
@@ -351,7 +354,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 </nav>
 
 <!-- Page Content -->
-<div class=\"container\">
+<div class=\"container-fluid\">
 
     <!-- Jumbotron Header -->
     {% block body %}{% endblock %}

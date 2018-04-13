@@ -132,6 +132,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array('_route' => 'logout');
         }
 
+        // shop
+        if ('/shop' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ShopController::index',  '_route' => 'shop',);
+        }
+
         if (0 === strpos($pathinfo, '/tag')) {
             // tag
             if (preg_match('#^/tag/(?P<slug>[^/]++)/product$#sD', $pathinfo, $matches)) {

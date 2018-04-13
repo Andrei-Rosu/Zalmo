@@ -7,6 +7,7 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ product.title }}</h4>
                     <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text">{{ product.price }},00 €</p>
                     <div>
                         {% for tag in product.tags %}
                             <a href="{{ path('tag', {'slug' : tag.slug}) }}" class="badge badge-pill badge-info" >#{{ tag.name }}</a>
@@ -18,8 +19,7 @@
                     <a href="{{ path('edit_product', {'id': product.id}) }}" class="btn btn-primary">Edit</a>
                     <a href="{{ path('delete_product', {'id': product.id}) }}" class="btn btn-danger">Delete</a>
                 </div>
-                    {#{% else is_granted('ROLE_USER')%}#}
-                    {% elseif is_granted('ROLE_CUSTOMER') or is_granted('ROLE_USER')%}
+                    {% else %}
                     <div class="card-footer">
                         <a class="btn btn-success" href="{{ path('add_transaction', {'id': product.id}) }}">Add to cart</a>
                     </div>

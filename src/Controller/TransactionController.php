@@ -22,7 +22,7 @@ class TransactionController extends Controller
     public function add(Product $product, ObjectManager $manager)
     {
         $transaction = new transaction();
-        $transaction->setDateStart(new \DateTime('now'))
+        $transaction->setDateTransaction(new \DateTime('now'))
             ->setStatus('pending')
             ->setProduct($product)
             ->setTransactioner($this->getUser());

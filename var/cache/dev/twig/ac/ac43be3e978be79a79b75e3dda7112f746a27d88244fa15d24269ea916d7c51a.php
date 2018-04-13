@@ -50,26 +50,30 @@ class __TwigTemplate_73fb4ae78dbad7e4da88c87b435222cdc4a683b962217b3cf095a091d5f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
-        echo "    <div class=\"row\">
+        echo "        <div class=\"jumbotron-fluid\">
+            <p>En premier, on va avoir besoin de quelques informations pour vous connecter à la plateforme</p>
+        </div>
+    <div class=\"row\">
         <div class=\"mx-auto col-md-6\">
             ";
-        // line 5
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 5, $this->source); })()), 'form_start');
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 8, $this->source); })()), 'form_start');
         echo "
             ";
-        // line 6
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 6, $this->source); })()), 'widget');
+        // line 9
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 9, $this->source); })()), 'widget');
         echo "
             ";
-        // line 7
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 7, $this->source); })()), 'form_end');
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 10, $this->source); })()), 'form_end');
         echo "
             <a class=\" btn badge-info\" href=\"";
-        // line 8
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home_paginated");
-        echo "\">Back</a>
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_productlist");
+        echo "\">Connectez-vous</a>
         </div>
     </div>
+
 
 ";
         
@@ -92,21 +96,25 @@ class __TwigTemplate_73fb4ae78dbad7e4da88c87b435222cdc4a683b962217b3cf095a091d5f
 
     public function getDebugInfo()
     {
-        return array (  69 => 8,  65 => 7,  61 => 6,  57 => 5,  53 => 3,  44 => 2,  15 => 1,);
+        return array (  72 => 11,  68 => 10,  64 => 9,  60 => 8,  53 => 3,  44 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends \"customer/layout_customer.html.twig\" %}
 {% block body %}
+        <div class=\"jumbotron-fluid\">
+            <p>En premier, on va avoir besoin de quelques informations pour vous connecter à la plateforme</p>
+        </div>
     <div class=\"row\">
         <div class=\"mx-auto col-md-6\">
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
-            <a class=\" btn badge-info\" href=\"{{ path('home_paginated') }}\">Back</a>
+            <a class=\" btn badge-info\" href=\"{{ path('user_productlist') }}\">Connectez-vous</a>
         </div>
     </div>
+
 
 {% endblock %}", "customer/customer_new.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/customer/customer_new.html.twig");
     }
