@@ -41,6 +41,10 @@ class Product
      */
 
     private $image;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="products")
@@ -56,18 +60,23 @@ class Product
 
     private $tags;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date_transaction;
+
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Loan", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\Transaction", mappedBy="product")
      * @var Collection
      */
-    private $loans;
+    private $transactions;
 
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
-        $this->loans = new ArrayCollection();
+        $this->transactions = new ArrayCollection();
     }
 
     /**
@@ -160,17 +169,56 @@ class Product
 
 
 
-    public function getLoans()
+    public function getTransactions()
     {
-        return $this->loans;
+        return $this->transactions;
     }
 
 
-    public function setLoans(Collection $loans): Product
+    public function setTransactions(Collection $transactions): Product
     {
-        $this->loans = $loans;
+        $this->transactions = $transactions;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateTransaction()
+    {
+        return $this->date_transaction;
+    }
+
+    /**
+     * @param mixed $date_transaction
+     * @return Product
+     */
+    public function setDateTransaction($date_transaction)
+    {
+        $this->date_transaction = $date_transaction;
+        return $this;
+    }
+
+
+
 
 
 

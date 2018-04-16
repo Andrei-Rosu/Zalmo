@@ -30,7 +30,7 @@ class ProductRepository extends ServiceEntityRepository
             ->addSelect('u')
             ->leftJoin('p.tags', 't')
             ->addSelect('t')
-            ->leftJoin('p.loans', 'l')
+            ->leftJoin('p.transactions', 'l')
             ->where('l.status = :status1')
             ->orWhere('l.status = :status2')
             ->orWhere('l.status is NULL')
@@ -67,7 +67,7 @@ class ProductRepository extends ServiceEntityRepository
             ->leftJoin('p.tags', 't2')
             ->addSelect('t')
             ->where('t2 = :tag')
-            ->leftJoin('p.loans', 'l')
+            ->leftJoin('p.transactions', 'l')
             ->setParameter('tag', $tag)
             ->orderBy('p.id', 'DESC');
         $orGroup = $queryBuilder->expr()->orX();

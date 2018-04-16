@@ -37,3 +37,5 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/product, roles: ROLE_USER }
+         - { path: ^/transaction, roles: ROLE_CUSTOMER }
+

@@ -64,10 +64,10 @@ class Product extends \App\Entity\Product implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'loans'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'transactions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'loans'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'transactions'];
     }
 
     /**
@@ -312,23 +312,23 @@ class Product extends \App\Entity\Product implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getLoans()
+    public function getTransactions()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLoans', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTransactions', []);
 
-        return parent::getLoans();
+        return parent::getTransactions();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setLoans(\Doctrine\Common\Collections\Collection $loans): \App\Entity\Product
+    public function setTransactions(\Doctrine\Common\Collections\Collection $transactions): \App\Entity\Product
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLoans', [$loans]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTransactions', [$transactions]);
 
-        return parent::setLoans($loans);
+        return parent::setTransactions($transactions);
     }
 
 }

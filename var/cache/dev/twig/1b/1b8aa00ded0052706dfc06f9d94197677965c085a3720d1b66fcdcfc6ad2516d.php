@@ -79,12 +79,15 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
                     <a class=\"nav-link\" href=\"";
         // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\">Home
+        echo "\">Accueil
                         <span class=\"sr-only\">(current)</span>
                     </a>
                 </li>
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">About</a>
+                    <a class=\"nav-link\" href=\"";
+        // line 40
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shop");
+        echo "\">Creer son boutique</a>
                 </li>
                 ";
         // line 42
@@ -94,28 +97,50 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
                     <a class=\"nav-link\" href=\"";
             // line 44
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
-            echo "\"> My Products</a>
+            echo "\"> Ma boutique</a>
                 </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
             // line 47
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
+            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 50
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-            echo "\"> Disconnect</a>
+            echo "\"> Déconnexion</a>
                     </li>
                     ";
-        } else {
-            // line 50
+        } elseif ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER")) {
+            // line 53
             echo "                        <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"";
-            // line 51
+            // line 54
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
+            echo "\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                        </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 57
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\"> Déconnexion</a>
+                    </li>
+
+                    ";
+        } else {
+            // line 61
+            echo "                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"";
+            // line 62
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
             echo "\"> Connectez-vous</a>
                         </li>
                 ";
         }
-        // line 54
+        // line 65
         echo "                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">Contact</a>
+                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
                 </li>
             </ul>
         </div>
@@ -123,13 +148,13 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 </nav>
 
 <!-- Page Content -->
-<div class=\"container\">
+<div class=\"container-fluid\">
 
     <!-- Jumbotron Header -->
     ";
-        // line 66
+        // line 77
         $this->displayBlock('body', $context, $blocks);
-        // line 67
+        // line 78
         echo "
     <!-- Page Features -->
 
@@ -145,17 +170,17 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
 <!-- Bootstrap core JavaScript -->
 <script src=\"";
-        // line 81
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 82
+        // line 93
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
 ";
-        // line 83
+        // line 94
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 84
+        // line 95
         echo "
 </body>
 
@@ -205,7 +230,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     }
 
-    // line 66
+    // line 77
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -222,7 +247,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     }
 
-    // line 83
+    // line 94
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -251,7 +276,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     public function getDebugInfo()
     {
-        return array (  226 => 83,  209 => 66,  192 => 18,  174 => 11,  159 => 84,  157 => 83,  153 => 82,  149 => 81,  133 => 67,  131 => 66,  117 => 54,  111 => 51,  108 => 50,  102 => 47,  96 => 44,  93 => 43,  91 => 42,  81 => 35,  63 => 19,  61 => 18,  57 => 17,  51 => 14,  45 => 11,  33 => 1,);
+        return array (  251 => 94,  234 => 77,  217 => 18,  199 => 11,  184 => 95,  182 => 94,  178 => 93,  174 => 92,  158 => 78,  156 => 77,  142 => 65,  136 => 62,  133 => 61,  126 => 57,  120 => 54,  117 => 53,  111 => 50,  105 => 47,  99 => 44,  96 => 43,  94 => 42,  89 => 40,  81 => 35,  63 => 19,  61 => 18,  57 => 17,  51 => 14,  45 => 11,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -290,27 +315,38 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
         <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ml-auto\">
                 <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{ path('home') }}\">Home
+                    <a class=\"nav-link\" href=\"{{ path('home') }}\">Accueil
                         <span class=\"sr-only\">(current)</span>
                     </a>
                 </li>
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">About</a>
+                    <a class=\"nav-link\" href=\"{{ path('shop') }}\">Creer son boutique</a>
                 </li>
                 {% if is_granted('ROLE_USER') %}
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"> My Products</a>
+                    <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"> Ma boutique</a>
                 </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Disconnect</a>
+                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
                     </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
+                    </li>
+                    {% elseif is_granted ('ROLE_CUSTOMER')%}
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+                        </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
+                    </li>
+
                     {% else %}
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"{{ path('login') }}\"> Connectez-vous</a>
                         </li>
                 {% endif %}
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">Contact</a>
+                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
                 </li>
             </ul>
         </div>
@@ -318,7 +354,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 </nav>
 
 <!-- Page Content -->
-<div class=\"container\">
+<div class=\"container-fluid\">
 
     <!-- Jumbotron Header -->
     {% block body %}{% endblock %}
@@ -344,6 +380,6 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
 </html>
 
-", "base.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/base.html.twig");
+", "base.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/base.html.twig");
     }
 }

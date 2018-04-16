@@ -58,16 +58,16 @@ class User implements UserInterface, \Serializable
     private $products;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Loan", mappedBy="loaner")
+     * @ORM\OneToMany(targetEntity="App\Entity\Transaction", mappedBy="transactioner")
      * @var Collection
      */
-    private $loans;
+    private $transactions;
 
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
-        $this->loans = new ArrayCollection();
+        $this->transactions = new ArrayCollection();
     }
 
 
@@ -221,15 +221,15 @@ class User implements UserInterface, \Serializable
     }
 
 
-    public function getLoans()
+    public function getTransactions()
     {
-        return $this->loans;
+        return $this->transactions;
     }
 
 
-    public function setLoans(Collection $loans)
+    public function setTransactions(Collection $transactions)
     {
-        $this->loans = $loans;
+        $this->transactions = $transactions;
         return $this;
     }
 

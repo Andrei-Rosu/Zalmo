@@ -53,7 +53,7 @@ class __TwigTemplate_86140b48a66b3deb9a3fe281ec65d76a47da9e7bc5bb93facaf2c8070ee
         echo "    ";
         // line 5
         echo "    <h1> Zalmo</h1>
-    <h2>LA maison du Bio</h2>
+    <h2>La maison du Bio</h2>
 
     ";
         // line 8
@@ -92,11 +92,11 @@ class __TwigTemplate_86140b48a66b3deb9a3fe281ec65d76a47da9e7bc5bb93facaf2c8070ee
 {% block body %}
     {# Commentaire #}
     <h1> Zalmo</h1>
-    <h2>LA maison du Bio</h2>
+    <h2>La maison du Bio</h2>
 
     {% include 'incs/product_list.html.twig' with {'products' : products, 'routeName': 'home_paginated'} %}
 
 
-{% endblock %}", "home.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/home.html.twig");
+{% endblock %}", "home.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/home.html.twig");
     }
 }

@@ -84,32 +84,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/lo')) {
-            if (0 === strpos($pathinfo, '/loan')) {
-                // add_loan
-                if (preg_match('#^/loan/(?P<id>[^/]++)/add$#sD', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_loan')), array (  '_controller' => 'App\\Controller\\LoanController::add',));
-                }
-
-                // edit_loan
-                if (0 === strpos($pathinfo, '/loan/edit') && preg_match('#^/loan/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_loan')), array (  '_controller' => 'App\\Controller\\LoanController::edit',));
-                }
-
-            }
-
-            // login
-            if ('/login' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\SecurityController::login',  '_route' => 'login',);
-            }
-
-            // logout
-            if ('/logout' === $pathinfo) {
-                return array('_route' => 'logout');
-            }
-
-        }
-
         elseif (0 === strpos($pathinfo, '/product')) {
             // user_productlist
             if ('/product' === $trimmedPathinfo) {
@@ -148,7 +122,22 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/tag')) {
+        // login
+        if ('/login' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\SecurityController::login',  '_route' => 'login',);
+        }
+
+        // logout
+        if ('/logout' === $pathinfo) {
+            return array('_route' => 'logout');
+        }
+
+        // shop
+        if ('/shop' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ShopController::index',  '_route' => 'shop',);
+        }
+
+        if (0 === strpos($pathinfo, '/tag')) {
             // tag
             if (preg_match('#^/tag/(?P<slug>[^/]++)/product$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'tag')), array (  '_controller' => 'App\\Controller\\TagController::product',));
@@ -162,6 +151,19 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // search_tag
             if ('/tag' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\TagController::search',  '_route' => 'search_tag',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/transaction')) {
+            // add_transaction
+            if (preg_match('#^/transaction/(?P<id>[^/]++)/add$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_transaction')), array (  '_controller' => 'App\\Controller\\TransactionController::add',));
+            }
+
+            // edit_transaction
+            if (0 === strpos($pathinfo, '/transaction/edit') && preg_match('#^/transaction/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_transaction')), array (  '_controller' => 'App\\Controller\\TransactionController::edit',));
             }
 
         }
