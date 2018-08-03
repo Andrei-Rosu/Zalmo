@@ -127,11 +127,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\SecurityController::login',  '_route' => 'login',);
         }
 
-        // logout
-        if ('/logout' === $pathinfo) {
-            return array('_route' => 'logout');
-        }
-
         // shop
         if ('/shop' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\ShopController::index',  '_route' => 'shop',);
@@ -155,20 +150,30 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/transaction')) {
-            // add_transaction
-            if (preg_match('#^/transaction/(?P<id>[^/]++)/add$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_transaction')), array (  '_controller' => 'App\\Controller\\TransactionController::add',));
+        // add_transaction
+        if (preg_match('#^/(?P<id>[^/]++)/add$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_transaction')), array (  '_controller' => 'App\\Controller\\TransactionController::add',));
+        }
+
+        if (0 === strpos($pathinfo, '/cart')) {
+            // edit_cart
+            if ('/cart' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\TransactionController::index',  '_route' => 'edit_cart',);
             }
 
-            // edit_transaction
-            if (0 === strpos($pathinfo, '/transaction/edit') && preg_match('#^/transaction/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_transaction')), array (  '_controller' => 'App\\Controller\\TransactionController::edit',));
+            // cart_detail
+            if ('/cart/detail' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\TransactionController::cart',  '_route' => 'cart_detail',);
             }
 
         }
 
-        elseif (0 === strpos($pathinfo, '/_')) {
+        // delete_transaction
+        if (0 === strpos($pathinfo, '/transaction/product/delete') && preg_match('#^/transaction/product/delete/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_transaction')), array (  '_controller' => 'App\\Controller\\TransactionController::deleteTransaction',));
+        }
+
+        if (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
@@ -245,6 +250,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             }
 
+        }
+
+        // logout
+        if ('/logout' === $pathinfo) {
+            return array('_route' => 'logout');
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

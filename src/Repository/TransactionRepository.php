@@ -18,6 +18,18 @@ class TransactionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Transaction::class);
     }
+    public function  findAllWithQuantityByUser($user)
+    {
+        return $this->createQueryBuilder('t')
+            ->leftJoin("t.product", "p")
+            ->addSelect("p")
+            ->leftJoin("t.transactioner", 'tt')
+            ->where("tt = :transactioner")
+            ->setParameter('transactioner', $user)
+            ->addSelect("COUNT(distinct t.id) as quantity")
+            ->groupBy("p")
+            ->getQuery()->getResult();
+    }
 
 
 

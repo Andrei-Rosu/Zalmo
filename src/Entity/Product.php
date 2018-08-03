@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -47,6 +48,15 @@ class Product
     private $price;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $category;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="products")
      * @var User owner
      */
@@ -61,13 +71,13 @@ class Product
     private $tags;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date_transaction;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Transaction", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\Transaction", cascade={"remove"}, mappedBy="product")
      * @var Collection
      */
     private $transactions;
@@ -105,6 +115,9 @@ class Product
         return $this->id;
     }
 
+    /**
+     * @Groups({"searchable"})
+     */
     public function getTitle()
     {
         return $this->title;
@@ -117,6 +130,9 @@ class Product
         return $this;
     }
 
+    /**
+     * @Groups({"searchable"})
+     */
     public function getDescription()
     {
         return $this->description;
@@ -144,6 +160,7 @@ class Product
 
     /**
      * @return Collection
+     * @Groups({"searchable"})
      */
     public function getTags(): Collection
     {
@@ -198,6 +215,44 @@ class Product
         $this->price = $price;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     * @return Product
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param mixed $stock
+     * @return Product
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+        return $this;
+    }
+
+
 
     /**
      * @return mixed

@@ -98,6 +98,6 @@ class __TwigTemplate_ef2b5b3fe6180ce820636b5010b102968f7529443af9c4e38d59b4063fd
 {% endfor %}
 </pre>
 {% endif %}
-", "@Twig/Exception/traces.txt.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/twig-bundle/Resources/views/Exception/traces.txt.twig");
+", "@Twig/Exception/traces.txt.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/twig-bundle/Resources/views/Exception/traces.txt.twig");
     }
 }

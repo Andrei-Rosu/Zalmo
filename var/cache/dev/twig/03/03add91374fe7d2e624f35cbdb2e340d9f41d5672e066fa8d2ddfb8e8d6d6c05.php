@@ -106,6 +106,6 @@ class __TwigTemplate_43af188c8bbd0c840f9b062a8491c898b201a377a95022a5982018dc2de
             <a class=\" btn badge-info\" href=\"{{ path('admin_dashboard') }}\">Back</a>
         </div>
     </div>
-{% endblock %}", "admin/edit_user.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/admin/edit_user.html.twig");
+{% endblock %}", "admin/edit_user.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/admin/edit_user.html.twig");
     }
 }

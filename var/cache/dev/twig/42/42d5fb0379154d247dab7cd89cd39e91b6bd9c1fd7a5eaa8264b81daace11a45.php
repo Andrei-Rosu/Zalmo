@@ -1127,6 +1127,6 @@ class __TwigTemplate_2e799661f49f1b610b0d59dd5d7308c128ef7dffdd4fc6c8e580d727caf
         </table>
     {% endif %}
 {% endblock %}
-", "@Security/Collector/security.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/security-bundle/Resources/views/Collector/security.html.twig");
+", "@Security/Collector/security.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/security-bundle/Resources/views/Collector/security.html.twig");
     }
 }

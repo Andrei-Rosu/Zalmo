@@ -64,10 +64,10 @@ class Product extends \App\Entity\Product implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'transactions'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'price', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'category', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'stock', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'date_transaction', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'transactions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'transactions'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'image', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'price', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'category', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'stock', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'date_transaction', '' . "\0" . 'App\\Entity\\Product' . "\0" . 'transactions'];
     }
 
     /**
@@ -329,6 +329,94 @@ class Product extends \App\Entity\Product implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTransactions', [$transactions]);
 
         return parent::setTransactions($transactions);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPrice()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', []);
+
+        return parent::getPrice();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPrice($price)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', [$price]);
+
+        return parent::setPrice($price);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCategory()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategory', []);
+
+        return parent::getCategory();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCategory($category)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCategory', [$category]);
+
+        return parent::setCategory($category);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getStock()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStock', []);
+
+        return parent::getStock();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setStock($stock)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStock', [$stock]);
+
+        return parent::setStock($stock);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDateTransaction()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateTransaction', []);
+
+        return parent::getDateTransaction();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDateTransaction($date_transaction)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateTransaction', [$date_transaction]);
+
+        return parent::setDateTransaction($date_transaction);
     }
 
 }

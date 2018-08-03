@@ -25,18 +25,10 @@ class ProductController extends Controller
     public function index(\App\Repository\ProductRepository $productRepo, $page = 1)
 
     {
-        if ($user->getRole() == 'ROLE_USER'){
         $productList = $productRepo->findPaginatedByUser($this->getUser(), $page);
         return $this->render("product/index.html.twig",[
             'products' => $productList
         ]);
-        }
-        elseif ($user->getRole() == 'ROLE_CUSTOMER'){
-            $productList = $productRepo->findPaginatedByCustomer($this->getCustomer(), $page);
-            return $this->render("product/index.html.twig",[
-                'products' => $productList
-            ]);
-        }
     }
 
 

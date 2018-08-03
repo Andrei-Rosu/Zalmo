@@ -1,11 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {# Commentaire #}
-    <h1> Zalmo</h1>
-    <h2>La maison du Bio</h2>
+    <div class="jumbotron">
+    <h2> Zalmo - la maison du commerce equitable, biodynamique et sans plastic</h2>
+    <p>Vous devez vous connecter à la plateforme pour pouvoir ajouter des produits dans votre panier</p>
 
     {% include 'incs/product_list.html.twig' with {'products' : products, 'routeName': 'home_paginated'} %}
+    </div>
 
 
 {% endblock %}

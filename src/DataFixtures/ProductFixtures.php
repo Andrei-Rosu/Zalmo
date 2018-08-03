@@ -14,10 +14,12 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
     {
         for ($i = 0; $i < 150; $i++) {
             $product = new Product();
-            $product->setTitle('My product n°' . $i);
-            $product->setDescription('Description of my product' . $i);
+            $product->setTitle('Produit n°' . $i);
+            $product->setDescription('Description détaillée de mon produit' . $i);
             $product->setImage("uploads/500x325.png");
             $product->setPrice(rand(10,150));
+            $product->setCategory('Categorie du produit' . $i);
+            $product->setStock(rand(5,25));
             $product->setOwner($this->getReference('user'. rand(0,59)));
             for($j=0; $j<rand(0,4);$j++){
                $tag = $this->getReference('tag'.rand(0,39));
@@ -31,7 +33,6 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
     }
     public function getDependencies(): array
     {
-        // TODO: Implement getDependencies() method.
         return [
             UserFixtures::class,
             TagFixtures::class

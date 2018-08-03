@@ -15,7 +15,6 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
         );
@@ -56,20 +55,25 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
         // line 17
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/heroic-features.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-    ";
+        <link href=\"";
         // line 18
-        $this->displayBlock('stylesheets', $context, $blocks);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+    <link href=\"";
         // line 19
-        echo "
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/font-awesome/css/font-awesome.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\">
+
+
 
 </head>
 
 <body>
 
 <!-- Navigation -->
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-success fixed-top\">
     <div class=\"container\">
-        <a class=\"navbar-brand\" href=\"#\">Welcome</a>
+        <a class=\"navbar-brand\" href=\"#\">Bienvenue dans la boutique sans plastique</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
@@ -77,72 +81,98 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
             <ul class=\"navbar-nav ml-auto\">
                 <li class=\"nav-item active\">
                     <a class=\"nav-link\" href=\"";
-        // line 35
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\">Accueil
+        echo "\"><i class=\"fa fa-home\"></i> Accueil
                         <span class=\"sr-only\">(current)</span>
                     </a>
                 </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"";
-        // line 40
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shop");
-        echo "\">Creer son boutique</a>
-                </li>
                 ";
-        // line 42
+        // line 41
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
-            // line 43
-            echo "                <li class=\"nav-item\">
+            // line 42
+            echo "
+                <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"";
             // line 44
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
             echo "\"> Ma boutique</a>
                 </li>
+
+                    <li class=\"nav-item\">
+
+                         <a class=\"nav-link\" href=\"";
+            // line 49
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_cart");
+            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier <span class=\"badge badge-pill badge-dark\" id=\"total-price\"></span></a>
+                    </li>
+
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-            // line 47
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
-            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"";
-            // line 50
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-            echo "\"> Déconnexion</a>
-                    </li>
-                    ";
-        } elseif ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER")) {
-            // line 53
-            echo "                        <li class=\"nav-item\">
-                            <a class=\"nav-link\" href=\"";
             // line 54
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_paginated");
-            echo "\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
-                        </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"";
-            // line 57
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\"> Déconnexion</a>
                     </li>
 
+
                     ";
-        } else {
-            // line 61
-            echo "                        <li class=\"nav-item\">
+        } elseif ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_CUSTOMER")) {
+            // line 59
+            echo "
+                        <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"";
-            // line 62
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-            echo "\"> Connectez-vous</a>
+            // line 61
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_cart");
+            echo "\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier<span class=\"badge badge-pill badge-dark\" id=\"total-price\"></span></a>
+                        </li>
+
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 65
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\"> Déconnexion</a>
+                    </li>
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"";
+            // line 68
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shop");
+            echo "\">Creer sa boutique</a>
                         </li>
                 ";
+        } else {
+            // line 71
+            echo "                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 72
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_cart");
+            echo "\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier<span id=\"total-price\"></span></a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+            // line 75
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shop");
+            echo "\">Creer sa boutique</a>
+                    </li>
+                    <li class=\"nav-item dropdown\">
+                    <a class=\"nav-link dropdown-toggle bg-success\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"fa fa-plug\"></i>
+                        Connexion
+                    </a>
+                    <div class=\"dropdown-menu bg-success\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item bg-success text-light\" href=\"";
+            // line 82
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer");
+            echo "\">Inscrivez-vous</a>
+                        <a class=\"dropdown-item bg-success text-light\" href=\"";
+            // line 83
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
+            echo "\">Connectez-vous</a>
+                    </div>
+                    </li>
+                ";
         }
-        // line 65
-        echo "                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
-                </li>
-            </ul>
+        // line 87
+        echo "            </ul>
         </div>
     </div>
 </nav>
@@ -152,16 +182,16 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     <!-- Jumbotron Header -->
     ";
-        // line 77
+        // line 96
         $this->displayBlock('body', $context, $blocks);
-        // line 78
+        // line 97
         echo "
     <!-- Page Features -->
 
 <!-- /.container -->
 </div>
 <!-- Footer -->
-<footer class=\"py-5 bg-dark\">
+<footer class=\"py-3 bg-success fixed-bottom\">
     <div class=\"container\">
         <p class=\"m-0 text-center text-white\">Copyright &copy; Zalmo Website 2018</p>
     </div>
@@ -170,17 +200,33 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
 <!-- Bootstrap core JavaScript -->
 <script src=\"";
-        // line 92
+        // line 111
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 93
+        // line 112
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
+<script>
+    \$(function(){
+        \$.getJSON(\"";
+        // line 115
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_detail");
+        echo "\", function (json) {
+            \$('#total-price').text(json['quantity']);
+        });
+        \$('.add_to_cart').click(function(e){
+            e.preventDefault();
+            \$.getJSON(\$(this).data('href'), function(json) {
+                \$('#total-price').text(json['quantity']);
+            });
+        })
+    })
+    </script>
 ";
-        // line 94
+        // line 126
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 95
+        // line 127
         echo "
 </body>
 
@@ -213,24 +259,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     }
 
-    // line 18
-    public function block_stylesheets($context, array $blocks = array())
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 77
+    // line 96
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -247,7 +276,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     }
 
-    // line 94
+    // line 126
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -276,7 +305,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     public function getDebugInfo()
     {
-        return array (  251 => 94,  234 => 77,  217 => 18,  199 => 11,  184 => 95,  182 => 94,  178 => 93,  174 => 92,  158 => 78,  156 => 77,  142 => 65,  136 => 62,  133 => 61,  126 => 57,  120 => 54,  117 => 53,  111 => 50,  105 => 47,  99 => 44,  96 => 43,  94 => 42,  89 => 40,  81 => 35,  63 => 19,  61 => 18,  57 => 17,  51 => 14,  45 => 11,  33 => 1,);
+        return array (  280 => 126,  263 => 96,  245 => 11,  230 => 127,  228 => 126,  214 => 115,  208 => 112,  204 => 111,  188 => 97,  186 => 96,  175 => 87,  168 => 83,  164 => 82,  154 => 75,  148 => 72,  145 => 71,  139 => 68,  133 => 65,  126 => 61,  122 => 59,  114 => 54,  106 => 49,  98 => 44,  94 => 42,  92 => 41,  85 => 37,  64 => 19,  60 => 18,  56 => 17,  50 => 14,  44 => 11,  32 => 1,);
     }
 
     public function getSourceContext()
@@ -298,7 +327,9 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 
     <!-- Custom styles for this template -->
     <link href=\"{{ asset('css/heroic-features.css')}}\" rel=\"stylesheet\">
-    {% block stylesheets %}{% endblock %}
+        <link href=\"{{ asset('css/style.css')}}\" rel=\"stylesheet\">
+    <link href=\"{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}\" rel=\"stylesheet\" type=\"text/css\">
+
 
 
 </head>
@@ -306,48 +337,65 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 <body>
 
 <!-- Navigation -->
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-success fixed-top\">
     <div class=\"container\">
-        <a class=\"navbar-brand\" href=\"#\">Welcome</a>
+        <a class=\"navbar-brand\" href=\"#\">Bienvenue dans la boutique sans plastique</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
         <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ml-auto\">
                 <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{ path('home') }}\">Accueil
+                    <a class=\"nav-link\" href=\"{{ path('home') }}\"><i class=\"fa fa-home\"></i> Accueil
                         <span class=\"sr-only\">(current)</span>
                     </a>
                 </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path('shop') }}\">Creer son boutique</a>
-                </li>
                 {% if is_granted('ROLE_USER') %}
+
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"> Ma boutique</a>
                 </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
+
+                         <a class=\"nav-link\" href=\"{{ path('edit_cart')}}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier <span class=\"badge badge-pill badge-dark\" id=\"total-price\"></span></a>
                     </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
-                    </li>
-                    {% elseif is_granted ('ROLE_CUSTOMER')%}
-                        <li class=\"nav-item\">
-                            <a class=\"nav-link\" href=\"{{ path('product_paginated') }}\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier</a>
-                        </li>
+
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
                     </li>
 
-                    {% else %}
+
+                    {% elseif is_granted ('ROLE_CUSTOMER') %}
+
                         <li class=\"nav-item\">
-                            <a class=\"nav-link\" href=\"{{ path('login') }}\"> Connectez-vous</a>
+                            <a class=\"nav-link\" href=\"{{ path('edit_cart') }}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier<span class=\"badge badge-pill badge-dark\" id=\"total-price\"></span></a>
                         </li>
+
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('logout') }}\"> Déconnexion</a>
+                    </li>
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"{{ path('shop') }}\">Creer sa boutique</a>
+                        </li>
+                {% else %}
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('edit_cart')}}\" ><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Mon panier<span id=\"total-price\"></span></a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('shop') }}\">Creer sa boutique</a>
+                    </li>
+                    <li class=\"nav-item dropdown\">
+                    <a class=\"nav-link dropdown-toggle bg-success\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"fa fa-plug\"></i>
+                        Connexion
+                    </a>
+                    <div class=\"dropdown-menu bg-success\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item bg-success text-light\" href=\"{{ path('customer') }}\">Inscrivez-vous</a>
+                        <a class=\"dropdown-item bg-success text-light\" href=\"{{ path('login') }}\">Connectez-vous</a>
+                    </div>
+                    </li>
                 {% endif %}
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#\">Contactez-nous</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -364,7 +412,7 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 <!-- /.container -->
 </div>
 <!-- Footer -->
-<footer class=\"py-5 bg-dark\">
+<footer class=\"py-3 bg-success fixed-bottom\">
     <div class=\"container\">
         <p class=\"m-0 text-center text-white\">Copyright &copy; Zalmo Website 2018</p>
     </div>
@@ -374,6 +422,19 @@ class __TwigTemplate_cdbbd04d70977197e33fe9541aecbbc76e973171effe8279a9c938e1ed7
 <!-- Bootstrap core JavaScript -->
 <script src=\"{{ asset('vendor/jquery/jquery.min.js')}}\"></script>
 <script src=\"{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}\"></script>
+<script>
+    \$(function(){
+        \$.getJSON(\"{{ path(\"cart_detail\") }}\", function (json) {
+            \$('#total-price').text(json['quantity']);
+        });
+        \$('.add_to_cart').click(function(e){
+            e.preventDefault();
+            \$.getJSON(\$(this).data('href'), function(json) {
+                \$('#total-price').text(json['quantity']);
+            });
+        })
+    })
+    </script>
 {% block javascripts %}{% endblock %}
 
 </body>

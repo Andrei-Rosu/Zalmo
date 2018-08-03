@@ -109,6 +109,6 @@ class __TwigTemplate_b2435d57a856c14fa1fdd7b5e1560ef14ab7e14a7868437edf980471e21
 <h1>{{ block('title') }}</h1>
     {% include'incs/product_list.html.twig' with {'products': products, 'routeName' : 'tag_paginated'}%}
 {% endblock %}
-", "tag/product.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/tag/product.html.twig");
+", "tag/product.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/tag/product.html.twig");
     }
 }

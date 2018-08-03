@@ -1,0 +1,15 @@
+# All available configuration can be found here:
+# https://www.algolia.com/doc/api-client/symfony/configuration/
+algolia_search:
+  prefix: app_dev_
+  nbResults: 12                  # Retrieve less results on search (default: 20)
+  doctrineSubscribedEvents: ['postPersist']  # disable doctrine events (turn off realtime sync)
+  indices:
+    - name: tags
+      class: App\Entity\Tag
+      enable_serializer_groups: true
+
+    - name: products
+      class: App\Entity\Product
+      enable_serializer_groups: true
+
