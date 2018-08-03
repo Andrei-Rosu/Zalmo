@@ -118,6 +118,8 @@ class __TwigTemplate_72d0af2f417cc8d701c94e708e3285fc0a5e157d55c1b43c2fe740b0594
         echo "                    </tbody>
                 </table>
             </div>
+        </div>
+    </div>
 
 
 
@@ -180,9 +182,11 @@ class __TwigTemplate_72d0af2f417cc8d701c94e708e3285fc0a5e157d55c1b43c2fe740b0594
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
 
 
 
-{% endblock %}", "admin/dashboard.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/admin/dashboard.html.twig");
+{% endblock %}", "admin/dashboard.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/admin/dashboard.html.twig");
     }
 }

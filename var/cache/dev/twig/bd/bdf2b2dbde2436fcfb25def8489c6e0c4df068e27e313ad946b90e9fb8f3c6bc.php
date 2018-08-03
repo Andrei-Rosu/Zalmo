@@ -474,6 +474,6 @@ class __TwigTemplate_6e08d6acf4d2b124445c78140ee5f606e9affb40b944aeb0de4dc6d57ee
         {% endif %}
     </div>
 </div>
-", "@Twig/Exception/exception.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/twig-bundle/Resources/views/Exception/exception.html.twig");
+", "@Twig/Exception/exception.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/twig-bundle/Resources/views/Exception/exception.html.twig");
     }
 }

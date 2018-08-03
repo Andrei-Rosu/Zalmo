@@ -128,6 +128,6 @@ class __TwigTemplate_cbd76456688a2f4b52a6dde6125080da0120d123516ce7d57453f8ffa38
         </tr>
     </tbody>
 </table>
-", "@Twig/Exception/traces_text.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/twig-bundle/Resources/views/Exception/traces_text.html.twig");
+", "@Twig/Exception/traces_text.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/twig-bundle/Resources/views/Exception/traces_text.html.twig");
     }
 }

@@ -18,17 +18,14 @@ class Transaction
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date_transaction;
-
     /**
      * @ORM\Column(type="integer")
      */
     private $price;
-
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_transaction;
     /**
      * @ORM\Column(type="string", length=20)
      */
@@ -46,23 +43,14 @@ class Transaction
      */
     private $product;
 
+    private $quantity;
+
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getDateStart()
-    {
-        return $this->date_start;
-    }
-
-    public function setDateStart(\DateTimeInterface $date_start): self
-    {
-        $this->date_start = $date_start;
-
-        return $this;
-    }
 
     public function getStatus()
     {
@@ -97,12 +85,29 @@ class Transaction
         $this->price = $price;
         return $this;
     }
-
-
     public function getTransactioner()
     {
         return $this->transactioner;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param mixed $quantity
+     * @return Transaction
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+        return $this;
+    }
+
 
 
     public function setTransactioner(User $transactioner)

@@ -8,40 +8,79 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Zalmo {% block title %}Le bio à la maison{% endblock %}</title>
+    <title>{% block title %}Zalmo - le bio{% endblock %}</title>
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('css/heroic-features.css')}}" rel="stylesheet">
+        <link href="{{ asset('vendor/css/style.css')}}" rel="stylesheet">
+        <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/heroic-features.css')}}" rel="stylesheet">
 
 </head>
 
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="#">Welcome</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="{{ path('home') }}">Accueil
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{{ path('shop') }}">Creer sa boutique</a>
                 </li>
+
+                {% if is_granted('ROLE_USER') %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('product_paginated') }}"> Ma boutique</a>
+                    </li>
+
+                    <li class="nav-item">
+
+                            <a class="nav-link" href="{{ path('product_paginated') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mon panier</a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('logout') }}"> Déconnexion</a>
+                    </li>
+
+                {% elseif is_granted ('ROLE_CUSTOMER')%}
+
+                    <li class="nav-item">
+                        {% for product in products|slice(0, 1)%}
+                            <a class="nav-link" href="{{ path('edit_transaction', {'id':product.id}) }}" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mon panier</a>
+                        {% endfor %}
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('logout') }}"> Déconnexion</a>
+                    </li>
+
+
+
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('customer') }}">Inscrivez-vous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('login') }}"> Connectez-vous</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">Contactez-nous</a>
                 </li>
             </ul>
         </div>
@@ -49,16 +88,17 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container-fluid">
 
+    <!-- Jumbotron Header -->
+    {% block body %}{% endblock %}
 
-    <!-- /.row -->
+    <!-- Page Features -->
 
+    <!-- /.container -->
 </div>
-<!-- /.container -->
-
 <!-- Footer -->
-<footer class="py-5 bg-dark fixed-bottom">
+<footer class="py-5 bg-dark sticky-footer">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Zalmo Website 2018</p>
     </div>
@@ -68,6 +108,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+{% block javascripts %}{% endblock %}
 
 </body>
 

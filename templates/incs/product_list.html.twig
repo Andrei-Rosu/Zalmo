@@ -1,4 +1,18 @@
 <!-- Page Features -->
+<div class="row">
+<div class="col-lg-3">
+    <div class="sidenav">
+
+        <a href="#" class="list-group-item list-unstyled">Alimentation</a>
+        <a href="#" class="list-group-item">Mode</a>
+            <a href="#" class="list-group-item">Maison</a>
+            <a href="#" class="list-group-item">Bien-être</a>
+
+
+    </div>
+</div>
+<!-- /.col-lg-3 -->
+<div class="col-lg-9">
 <div class="row text-center">
     {% for product in products %}
         <div class="col-lg-3 col-md-6 mb-4">
@@ -7,10 +21,12 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ product.title }}</h4>
                     <p class="card-text">{{ product.description }}</p>
-                    <p class="card-text">{{ product.price }},00 €</p>
+                    <p class="card-text">{{ product.category }}</p>
+                    <p class="card-text">Prix: {{ product.price }},00 €</p>
+                    <p class="card-text">Ils nous en restent: {{ product.stock }}</p>
                     <div>
                         {% for tag in product.tags %}
-                            <a href="{{ path('tag', {'slug' : tag.slug}) }}" class="badge badge-pill badge-info" >#{{ tag.name }}</a>
+                            <a href="{{ path('tag', {'slug' : tag.slug}) }}" class="badge badge-pill badge-info" >{{ tag.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -21,14 +37,15 @@
                 </div>
                     {% else %}
                     <div class="card-footer">
-                        <a class="btn btn-success" href="{{ path('add_transaction', {'id': product.id}) }}">Add to cart</a>
+                        <a class="btn btn-success add_to_cart" href="#" data-href="{{ path('add_transaction', {'id': product.id}) }}">Add to cart</a>
                     </div>
                 {% endif %}
             </div>
         </div>
     {% endfor %}
-</div>
-<!-- /.row -->
+</div><!-- /.row .text-center -->
+</div><!--/col-lg-9 -->
+</div><!--row -->
 
     {%  if products.haveToPaginate %}
         {{ pagerfanta(products,'twitter_bootstrap4',{'routeName': routeName}) }}

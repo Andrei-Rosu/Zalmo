@@ -50,16 +50,16 @@ class __TwigTemplate_86140b48a66b3deb9a3fe281ec65d76a47da9e7bc5bb93facaf2c8070ee
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    ";
-        // line 5
-        echo "    <h1> Zalmo</h1>
-    <h2>La maison du Bio</h2>
+        echo "    <div class=\"jumbotron\">
+    <h2> Zalmo - la maison du commerce equitable, biodynamique et sans plastic</h2>
+    <p>Vous devez vous connecter à la plateforme pour pouvoir ajouter des produits dans votre panier</p>
 
     ";
         // line 8
         $this->loadTemplate("incs/product_list.html.twig", "home.html.twig", 8)->display(array_merge($context, array("products" => (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 8, $this->source); })()), "routeName" => "home_paginated")));
         // line 9
-        echo "
+        echo "    </div>
+
 
 ";
         
@@ -82,7 +82,7 @@ class __TwigTemplate_86140b48a66b3deb9a3fe281ec65d76a47da9e7bc5bb93facaf2c8070ee
 
     public function getDebugInfo()
     {
-        return array (  62 => 9,  60 => 8,  55 => 5,  53 => 4,  44 => 3,  15 => 1,);
+        return array (  61 => 9,  59 => 8,  53 => 4,  44 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -90,11 +90,12 @@ class __TwigTemplate_86140b48a66b3deb9a3fe281ec65d76a47da9e7bc5bb93facaf2c8070ee
         return new Twig_Source("{% extends \"base.html.twig\" %}
 
 {% block body %}
-    {# Commentaire #}
-    <h1> Zalmo</h1>
-    <h2>La maison du Bio</h2>
+    <div class=\"jumbotron\">
+    <h2> Zalmo - la maison du commerce equitable, biodynamique et sans plastic</h2>
+    <p>Vous devez vous connecter à la plateforme pour pouvoir ajouter des produits dans votre panier</p>
 
     {% include 'incs/product_list.html.twig' with {'products' : products, 'routeName': 'home_paginated'} %}
+    </div>
 
 
 {% endblock %}", "home.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/home.html.twig");

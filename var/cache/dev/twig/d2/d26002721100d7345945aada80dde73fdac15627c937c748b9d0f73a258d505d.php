@@ -936,6 +936,6 @@ class __TwigTemplate_96ba30705c9ce2086c2d16cc70c483c15f5cffb6bab92b4fec4daa0190b
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/web-profiler-bundle/Resources/views/Collector/config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/web-profiler-bundle/Resources/views/Collector/config.html.twig");
     }
 }

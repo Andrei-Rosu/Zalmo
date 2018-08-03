@@ -67,10 +67,6 @@ class __TwigTemplate_73fb4ae78dbad7e4da88c87b435222cdc4a683b962217b3cf095a091d5f
         // line 10
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 10, $this->source); })()), 'form_end');
         echo "
-            <a class=\" btn badge-info\" href=\"";
-        // line 11
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_productlist");
-        echo "\">Connectez-vous</a>
         </div>
     </div>
 
@@ -96,7 +92,7 @@ class __TwigTemplate_73fb4ae78dbad7e4da88c87b435222cdc4a683b962217b3cf095a091d5f
 
     public function getDebugInfo()
     {
-        return array (  72 => 11,  68 => 10,  64 => 9,  60 => 8,  53 => 3,  44 => 2,  15 => 1,);
+        return array (  68 => 10,  64 => 9,  60 => 8,  53 => 3,  44 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -111,7 +107,6 @@ class __TwigTemplate_73fb4ae78dbad7e4da88c87b435222cdc4a683b962217b3cf095a091d5f
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
-            <a class=\" btn badge-info\" href=\"{{ path('user_productlist') }}\">Connectez-vous</a>
         </div>
     </div>
 

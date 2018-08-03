@@ -37,6 +37,7 @@ class ComposerStaticInit3e8f1611e5f4f397d8670f1c1ebc33ff
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Stopwatch\\' => 28,
+            'Symfony\\Component\\Serializer\\' => 29,
             'Symfony\\Component\\Security\\' => 27,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\PropertyAccess\\' => 33,
@@ -103,6 +104,7 @@ class ComposerStaticInit3e8f1611e5f4f397d8670f1c1ebc33ff
         array (
             'App\\Tests\\' => 10,
             'App\\' => 4,
+            'Algolia\\SearchBundle\\' => 21,
         ),
     );
 
@@ -154,6 +156,10 @@ class ComposerStaticInit3e8f1611e5f4f397d8670f1c1ebc33ff
         'Symfony\\Component\\Stopwatch\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/stopwatch',
+        ),
+        'Symfony\\Component\\Serializer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/serializer',
         ),
         'Symfony\\Component\\Security\\' => 
         array (
@@ -359,6 +365,10 @@ class ComposerStaticInit3e8f1611e5f4f397d8670f1c1ebc33ff
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'Algolia\\SearchBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/algolia/search-bundle/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -393,6 +403,13 @@ class ComposerStaticInit3e8f1611e5f4f397d8670f1c1ebc33ff
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
+        'A' => 
+        array (
+            'AlgoliaSearch' => 
+            array (
+                0 => __DIR__ . '/..' . '/algolia/algoliasearch-client-php/src',
             ),
         ),
     );

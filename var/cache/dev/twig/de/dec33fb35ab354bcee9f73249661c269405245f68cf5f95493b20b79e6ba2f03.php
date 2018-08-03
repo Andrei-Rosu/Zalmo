@@ -82,18 +82,6 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
             </li>
 
             <li class=\"nav-item\">
-                <form class=\"form-inline my-2 my-lg-0 mr-lg-2\">
-                    <div class=\"input-group\">
-                        <input class=\"form-control\" type=\"text\" placeholder=\"Search for...\">
-                        <span class=\"input-group-append\">
-                <button class=\"btn btn-primary\" type=\"button\">
-                  <i class=\"fa fa-search\"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-            </li>
-            <li class=\"nav-item\">
                 <a class=\"nav-link\" data-toggle=\"modal\" data-target=\"#logoutModal\">
                     <i class=\"fa fa-fw fa-sign-out\"></i>Logout</a>
             </li>
@@ -111,9 +99,9 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
         </ol>
         <!-- Example DataTables Card-->
         ";
-        // line 66
+        // line 54
         $this->displayBlock('body', $context, $blocks);
-        // line 67
+        // line 55
         echo "    </div>
 </div>
     <!-- /.container-fluid-->
@@ -143,7 +131,7 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
                 <div class=\"modal-footer\">
                     <button class=\"btn btn-secondary\" type=\"button\" data-dismiss=\"modal\">Cancel</button>
                     <a class=\"btn btn-primary\" href=\"";
-        // line 95
+        // line 83
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
         echo "\">Logout</a>
                 </div>
@@ -152,35 +140,35 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src=\"";
-        // line 101
+        // line 89
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery/jquery.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 102
+        // line 90
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
     <!-- Core plugin JavaScript-->
     <script src=\"";
-        // line 104
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery-easing/jquery.easing.min.js"), "html", null, true);
         echo "\"></script>
     <!-- Page level plugin JavaScript-->
     <script src=\"";
-        // line 106
+        // line 94
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables/jquery.dataTables.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 107
+        // line 95
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables/dataTables.bootstrap4.js"), "html", null, true);
         echo "\"></script>
     <!-- Custom scripts for all pages-->
     <script src=\"";
-        // line 109
+        // line 97
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/sb-admin.min.js"), "html", null, true);
         echo "\"></script>
     <!-- Custom scripts for this page-->
     <script src=\"";
-        // line 111
+        // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/sb-admin-datatables.min.js"), "html", null, true);
         echo "\"></script>
 </div>
@@ -196,7 +184,7 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
 
     }
 
-    // line 66
+    // line 54
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -225,7 +213,7 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
 
     public function getDebugInfo()
     {
-        return array (  200 => 66,  184 => 111,  179 => 109,  174 => 107,  170 => 106,  165 => 104,  160 => 102,  156 => 101,  147 => 95,  117 => 67,  115 => 66,  77 => 31,  67 => 24,  58 => 18,  53 => 16,  48 => 14,  43 => 12,  30 => 1,);
+        return array (  188 => 54,  172 => 99,  167 => 97,  162 => 95,  158 => 94,  153 => 92,  148 => 90,  144 => 89,  135 => 83,  105 => 55,  103 => 54,  77 => 31,  67 => 24,  58 => 18,  53 => 16,  48 => 14,  43 => 12,  30 => 1,);
     }
 
     public function getSourceContext()
@@ -266,18 +254,6 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
                 </a>
             </li>
 
-            <li class=\"nav-item\">
-                <form class=\"form-inline my-2 my-lg-0 mr-lg-2\">
-                    <div class=\"input-group\">
-                        <input class=\"form-control\" type=\"text\" placeholder=\"Search for...\">
-                        <span class=\"input-group-append\">
-                <button class=\"btn btn-primary\" type=\"button\">
-                  <i class=\"fa fa-search\"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-            </li>
             <li class=\"nav-item\">
                 <a class=\"nav-link\" data-toggle=\"modal\" data-target=\"#logoutModal\">
                     <i class=\"fa fa-fw fa-sign-out\"></i>Logout</a>
@@ -345,6 +321,6 @@ class __TwigTemplate_b35f93a3a4e81d8ba2f09bcedf520f2372f3453ef00d19d7f4e7825a394
 </body>
 
 </html>
-", "admin/layout_admin.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/admin/layout_admin.html.twig");
+", "admin/layout_admin.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/admin/layout_admin.html.twig");
     }
 }

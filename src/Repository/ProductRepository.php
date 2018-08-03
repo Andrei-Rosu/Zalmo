@@ -31,11 +31,6 @@ class ProductRepository extends ServiceEntityRepository
             ->leftJoin('p.tags', 't')
             ->addSelect('t')
             ->leftJoin('p.transactions', 'l')
-            ->where('l.status = :status1')
-            ->orWhere('l.status = :status2')
-            ->orWhere('l.status is NULL')
-            ->setParameter('status1', 'finished')
-            ->setParameter('status2', 'refused')
             ->orderBy('p.id','DESC');
         $pager = new DoctrineORMAdapter($queryBuilder);
         $fanta = new Pagerfanta($pager);
@@ -58,6 +53,23 @@ class ProductRepository extends ServiceEntityRepository
         return $fanta->setMaxPerPage(12)->setCurrentPage($page);
 
     }
+
+    public function findPaginatedByCustomer(User $user, $page=1)
+    {
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->leftJoin('p.owner', 'u')
+            ->addSelect('u')
+            ->leftJoin('p.tags', 't')
+            ->addSelect('t')
+            ->where('u = :user')
+            ->setParameter('user', $user)
+            ->orderBy('p.id', 'ASC');
+        $pager = new DoctrineORMAdapter($queryBuilder);
+        $fanta = new Pagerfanta($pager);
+        return $fanta->setMaxPerPage(12)->setCurrentPage($page);
+
+    }
+
     public function findPaginatedByTag(Tag $tag, $page=1)
     {
         $queryBuilder = $this->createQueryBuilder('p')
@@ -70,14 +82,7 @@ class ProductRepository extends ServiceEntityRepository
             ->leftJoin('p.transactions', 'l')
             ->setParameter('tag', $tag)
             ->orderBy('p.id', 'DESC');
-        $orGroup = $queryBuilder->expr()->orX();
-        $orGroup->add($queryBuilder->expr()->eq('l.status',':status1'));
-        $orGroup->add($queryBuilder->expr()->eq('l.status',':status2'));
-        $orGroup->add($queryBuilder->expr()->isNull('l.status'));
 
-        $queryBuilder->andWhere($orGroup)
-            ->setParameter('status1', 'refused')
-            ->setParameter('status2', 'finished');
 
         $pager = new DoctrineORMAdapter($queryBuilder);
         $fanta = new Pagerfanta($pager);

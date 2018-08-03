@@ -1659,6 +1659,6 @@ class __TwigTemplate_5242dbac3d095b43031f4bcefccbd1f0a30eb962c71f3899cbb9d8224bf
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
     }
 }

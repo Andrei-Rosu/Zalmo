@@ -50,7 +50,7 @@ class __TwigTemplate_27e837593d7a09e6ea34514811d2524b83f4c721d8fa1f61a0d355e574e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "My products";
+        echo "Ma boutique";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -69,21 +69,20 @@ class __TwigTemplate_27e837593d7a09e6ea34514811d2524b83f4c721d8fa1f61a0d355e574e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 5
-        echo "  <h1>My products</h1>
-    <!-- Jumbotron Header -->
+        echo "    <!-- Jumbotron Header -->
     <header class=\"jumbotron my-4\">
-        <h1 class=\"display-3\">My products</h1>
-        <p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+        <h5>Ma boutique</h5>
+        <p class=\"lead\">Ici, vous pouvez ajouter et éditer les produits qui seront disponibles à l'instant dans la boutique.</p>
         <a href=\"";
-        // line 10
+        // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_product");
-        echo "\" class=\"btn btn-primary btn-lg\">Add product</a>
+        echo "\" class=\"btn btn-primary btn-lg\">Ajouter un produit</a>
     </header>
 
     ";
+        // line 12
+        $this->loadTemplate("incs/product_list.html.twig", "product/index.html.twig", 12)->display(array_merge($context, array("products" => (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 12, $this->source); })()), "routeName" => "product_paginated")));
         // line 13
-        $this->loadTemplate("incs/product_list.html.twig", "product/index.html.twig", 13)->display(array_merge($context, array("products" => (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new Twig_Error_Runtime('Variable "products" does not exist.', 13, $this->source); })()), "routeName" => "product_paginated")));
-        // line 14
         echo "
 ";
         
@@ -106,25 +105,24 @@ class __TwigTemplate_27e837593d7a09e6ea34514811d2524b83f4c721d8fa1f61a0d355e574e
 
     public function getDebugInfo()
     {
-        return array (  87 => 14,  85 => 13,  79 => 10,  72 => 5,  63 => 4,  45 => 2,  15 => 1,);
+        return array (  86 => 13,  84 => 12,  78 => 9,  72 => 5,  63 => 4,  45 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends \"base.html.twig\" %}
-{% block title %}My products{% endblock %}
+{% block title %}Ma boutique{% endblock %}
 
 {% block body %}
-  <h1>My products</h1>
     <!-- Jumbotron Header -->
     <header class=\"jumbotron my-4\">
-        <h1 class=\"display-3\">My products</h1>
-        <p class=\"lead\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-        <a href=\"{{ path('add_product') }}\" class=\"btn btn-primary btn-lg\">Add product</a>
+        <h5>Ma boutique</h5>
+        <p class=\"lead\">Ici, vous pouvez ajouter et éditer les produits qui seront disponibles à l'instant dans la boutique.</p>
+        <a href=\"{{ path('add_product') }}\" class=\"btn btn-primary btn-lg\">Ajouter un produit</a>
     </header>
 
     {% include 'incs/product_list.html.twig' with {'products' : products, 'routeName': 'product_paginated'} %}
 
-{% endblock %}", "product/index.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/product/index.html.twig");
+{% endblock %}", "product/index.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/product/index.html.twig");
     }
 }

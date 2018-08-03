@@ -1,13 +1,12 @@
 {% extends "base.html.twig" %}
-{% block title %}My products{% endblock %}
+{% block title %}Ma boutique{% endblock %}
 
 {% block body %}
-  <h1>My products</h1>
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-        <h1 class="display-3">My products</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-        <a href="{{ path('add_product') }}" class="btn btn-primary btn-lg">Add product</a>
+        <h5>Ma boutique</h5>
+        <p class="lead">Ici, vous pouvez ajouter et éditer les produits qui seront disponibles à l'instant dans la boutique.</p>
+        <a href="{{ path('add_product') }}" class="btn btn-primary btn-lg">Ajouter un produit</a>
     </header>
 
     {% include 'incs/product_list.html.twig' with {'products' : products, 'routeName': 'product_paginated'} %}

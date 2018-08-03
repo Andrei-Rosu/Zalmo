@@ -1,5 +1,115 @@
 [
     {
+        "name": "algolia/algoliasearch-client-php",
+        "version": "1.25.1",
+        "version_normalized": "1.25.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/algolia/algoliasearch-client-php.git",
+            "reference": "805021ea52630756d2da01d482309a2fdc47d3c0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/805021ea52630756d2da01d482309a2fdc47d3c0",
+            "reference": "805021ea52630756d2da01d482309a2fdc47d3c0",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
+            "satooshi/php-coveralls": "^1.0"
+        },
+        "time": "2018-03-02T13:24:10+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "AlgoliaSearch": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Algolia Team",
+                "email": "contact@algolia.com"
+            },
+            {
+                "name": "Ryan T. Catlin",
+                "email": "ryan.catlin@gmail.com"
+            },
+            {
+                "name": "Jonathan H. Wage",
+                "email": "jonwage@gmail.com"
+            }
+        ],
+        "description": "Algolia Search API Client for PHP",
+        "homepage": "https://github.com/algolia/algoliasearch-client-php"
+    },
+    {
+        "name": "algolia/search-bundle",
+        "version": "3.1.1",
+        "version_normalized": "3.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/algolia/search-bundle.git",
+            "reference": "8327cdd27c692b7d9a2aff873d80a547824ad435"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/algolia/search-bundle/zipball/8327cdd27c692b7d9a2aff873d80a547824ad435",
+            "reference": "8327cdd27c692b7d9a2aff873d80a547824ad435",
+            "shasum": ""
+        },
+        "require": {
+            "algolia/algoliasearch-client-php": "^1.23",
+            "doctrine/common": "^2.5",
+            "symfony/filesystem": "^3.4.0 || ^4.0.0",
+            "symfony/property-access": "^3.4.0 || ^4.0.0",
+            "symfony/serializer": "^3.4.0 || ^4.0.0"
+        },
+        "require-dev": {
+            "doctrine/doctrine-bundle": "^1.8",
+            "doctrine/orm": "^2.5",
+            "phpunit/phpunit": "^5.7 || ^6.5",
+            "symfony/doctrine-bridge": "^3.4.0 || ^4.0.0",
+            "symfony/framework-bundle": "^3.4.0 || ^4.0.0",
+            "symfony/yaml": "^3.4.0 || ^4.0.0"
+        },
+        "time": "2018-03-22T10:48:07+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Algolia\\SearchBundle\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Algolia Team",
+                "email": "contact@algolia.com"
+            },
+            {
+                "name": "Julien Bourdeau",
+                "email": "julien@sigerr.org"
+            }
+        ]
+    },
+    {
         "name": "cocur/slugify",
         "version": "v3.1",
         "version_normalized": "3.1.0.0",
@@ -1753,8 +1863,8 @@
     },
     {
         "name": "symfony/asset",
-        "version": "v4.0.6",
-        "version_normalized": "4.0.6.0",
+        "version": "v4.0.8",
+        "version_normalized": "4.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/asset.git",
@@ -2016,17 +2126,17 @@
     },
     {
         "name": "symfony/debug",
-        "version": "v4.0.6",
-        "version_normalized": "4.0.6.0",
+        "version": "v4.0.8",
+        "version_normalized": "4.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/debug.git",
-            "reference": "1721e4e7effb23480966690cdcdc7d2a4152d489"
+            "reference": "5961d02d48828671f5d8a7805e06579d692f6ede"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/debug/zipball/1721e4e7effb23480966690cdcdc7d2a4152d489",
-            "reference": "1721e4e7effb23480966690cdcdc7d2a4152d489",
+            "url": "https://api.github.com/repos/symfony/debug/zipball/5961d02d48828671f5d8a7805e06579d692f6ede",
+            "reference": "5961d02d48828671f5d8a7805e06579d692f6ede",
             "shasum": ""
         },
         "require": {
@@ -2039,7 +2149,7 @@
         "require-dev": {
             "symfony/http-kernel": "~3.4|~4.0"
         },
-        "time": "2018-02-28T21:50:02+00:00",
+        "time": "2018-04-03T05:24:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3790,6 +3900,86 @@
             }
         ],
         "description": "Symfony SecurityBundle",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/serializer",
+        "version": "v4.0.8",
+        "version_normalized": "4.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/serializer.git",
+            "reference": "d0e9269101ccd978af971fd4d7a892848672bfa1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/serializer/zipball/d0e9269101ccd978af971fd4d7a892848672bfa1",
+            "reference": "d0e9269101ccd978af971fd4d7a892848672bfa1",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "conflict": {
+            "phpdocumentor/type-resolver": "<0.2.1",
+            "symfony/dependency-injection": "<3.4",
+            "symfony/property-access": "<3.4",
+            "symfony/property-info": "<3.4",
+            "symfony/yaml": "<3.4"
+        },
+        "require-dev": {
+            "doctrine/annotations": "~1.0",
+            "doctrine/cache": "~1.0",
+            "phpdocumentor/reflection-docblock": "^3.0|^4.0",
+            "symfony/cache": "~3.4|~4.0",
+            "symfony/config": "~3.4|~4.0",
+            "symfony/dependency-injection": "~3.4|~4.0",
+            "symfony/http-foundation": "~3.4|~4.0",
+            "symfony/property-access": "~3.4|~4.0",
+            "symfony/property-info": "~3.4|~4.0",
+            "symfony/yaml": "~3.4|~4.0"
+        },
+        "suggest": {
+            "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
+            "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
+            "psr/cache-implementation": "For using the metadata cache.",
+            "symfony/config": "For using the XML mapping loader.",
+            "symfony/http-foundation": "To use the DataUriNormalizer.",
+            "symfony/property-access": "For using the ObjectNormalizer.",
+            "symfony/property-info": "To deserialize relations.",
+            "symfony/yaml": "For using the default YAML mapping loader."
+        },
+        "time": "2018-03-19T17:30:36+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Serializer\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Serializer Component",
         "homepage": "https://symfony.com"
     },
     {

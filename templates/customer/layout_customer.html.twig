@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Zalmo - la maison du bio</title>
+    <title>Zalmo - sans plastic on vive mieux</title>
     <!-- Bootstrap core CSS-->
     <link href="{{  asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -20,14 +20,14 @@
     {% block stylesheets %}{% endblock %}
 </head>
 
-<body class=" sticky-footer bg-dark">
+<body class="bg-success">
 <div class="container">
 
 <!-- Navigation-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
 
-        <a class="navbar-brand" href="#">Welcome</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,30 +38,35 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('customer') }}">Creer son boutique</a>
-                </li>
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('product_paginated') }}"> Ma boutique</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('product_paginated') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mon panier</a>
+                        <a class="nav-link" href="{{ path('edit_cart')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mon panier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('logout') }}"> Déconnexion</a>
                     </li>
                 {% elseif is_granted ('ROLE_CUSTOMER')%}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('product_paginated') }}" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mon panier</a>
+                        <a class="nav-link" href="{{ path('edit_cart') }}" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mon panier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('logout') }}"> Déconnexion</a>
+                    </li>
+                {% elseif is_granted ('ROLE_ADMIN') %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_dashboard') }}"> Panneau de control</a>
                     </li>
 
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('login') }}"> Connectez-vous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('customer') }}">Creer son boutique</a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
@@ -71,15 +76,16 @@
         </div>
 
 </nav>
+    <h3><a class="text-light" href="#">Zalmo - sans plastic on vive mieux</a></h3>
 
         <!-- Example DataTables Card-->
         {% block body %}{% endblock %}
 
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->
-<footer class="sticky-footer">
+<footer class="py-3 bg-success fixed-bottom">
     <div class="container">
-        <div class="text-center">
+        <div class="text-center text-light">
             <small>Copyright © Zalmo 2018</small>
         </div>
     </div>
@@ -99,6 +105,19 @@
 <script src="{{ asset('js/sb-admin.min.js') }}"></script>
 <!-- Custom scripts for this page-->
 <script src="{{ asset('js/sb-admin-datatables.min.js') }}"></script>
+    <script>
+        $(function(){
+            $.getJSON("{{ path("cart_detail") }}", function (json) {
+                $('#total-price').text(json['quantity']);
+            });
+            $('.add_to_cart').click(function(e){
+                e.preventDefault();
+                $.getJSON($(this).data('href'), function(json) {
+                    $('#total-price').text(json['quantity']);
+                });
+            })
+        })
+    </script>
 </div>
 </body>
 

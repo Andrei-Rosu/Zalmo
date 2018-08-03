@@ -27,6 +27,8 @@ class ProductType extends AbstractType
             ->add('description',TextareaType::class)
             ->add('image', FileType::class, ['required'=> false])
             ->add('price')
+            ->add('category')
+            ->add('stock')
             ->add('tags', TextType::class)
             ->get('tags')
                 ->addModelTransformer($this->tagTransformer)

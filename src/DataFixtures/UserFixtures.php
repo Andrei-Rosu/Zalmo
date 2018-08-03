@@ -15,7 +15,7 @@ class UserFixtures extends Fixture
             $user = new User();
             $user->setUsername('user_'.$i);
             $user->setPassword(password_hash('user', PASSWORD_BCRYPT));
-            $user->setEmail('product'.$i.'@fake.fr');
+            $user->setEmail('email'.$i.'@fake.fr');
             $user->setRegisterDate(new \DateTime('-'.$i.' days'));
             $user->setRoles('ROLE_USER');
             $this->addReference('user'.$i, $user);

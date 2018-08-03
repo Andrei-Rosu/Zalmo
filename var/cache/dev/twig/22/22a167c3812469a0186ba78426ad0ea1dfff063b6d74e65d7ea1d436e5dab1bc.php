@@ -1182,6 +1182,6 @@ class __TwigTemplate_71b2432926e2ef710779592e9710388dfdc4c6e13091e8a3c0e0895b003
         display: none;
     }
 }
-", "@WebProfiler/Profiler/toolbar.css.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/toolbar.css.twig");
+", "@WebProfiler/Profiler/toolbar.css.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/toolbar.css.twig");
     }
 }

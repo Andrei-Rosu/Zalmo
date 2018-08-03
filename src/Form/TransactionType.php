@@ -13,7 +13,7 @@ class TransactionType extends AbstractType
     {
         $builder
 
-            ->add('date_end')
+            ->add('')
         ;
     }
 

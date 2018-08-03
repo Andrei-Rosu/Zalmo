@@ -59,28 +59,29 @@ class __TwigTemplate_96cecb706355ddc2aa4a3338cca482bbdf1c93d42ccde51d6db1b9e4123
     ";
         }
         // line 6
-        echo "
-    <form class=\"my-2 form-group\" action=\"";
+        echo "<div class=\"jumbotron-fluid text-center\">
+    <form class=\"mx-auto form-group\" action=\"";
         // line 7
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\" method=\"post\">
-        <div class=\"form-group\">
-        <label for=\"username\">Username:</label>
+        <div class=\"form-group col-md-4\">
+        <label for=\"username\">Nom d'utilisateur:</label>
         <input class=\"form-control\" type=\"text\" id=\"username\" name=\"_username\" value=\"";
         // line 10
         echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 10, $this->source); })()), "html", null, true);
         echo "\" />
     </div>
-        <div class=\"form-group\">
-        <label for=\"password\">Password:</label>
+        <div class=\"form-group col-md-4\">
+        <label for=\"password\">Mot de passe:</label>
         <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\" />
         </div>
 
         ";
         // line 22
         echo "
-        <button class=\"btn btn-primary form-group\" type=\"submit\">login</button>
+        <button class=\"btn btn-primary form-group\" type=\"submit\">Se connecter</button>
     </form>
+</div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -112,14 +113,14 @@ class __TwigTemplate_96cecb706355ddc2aa4a3338cca482bbdf1c93d42ccde51d6db1b9e4123
     {% if error %}
         <div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
-    <form class=\"my-2 form-group\" action=\"{{ path('login') }}\" method=\"post\">
-        <div class=\"form-group\">
-        <label for=\"username\">Username:</label>
+<div class=\"jumbotron-fluid text-center\">
+    <form class=\"mx-auto form-group\" action=\"{{ path('login') }}\" method=\"post\">
+        <div class=\"form-group col-md-4\">
+        <label for=\"username\">Nom d'utilisateur:</label>
         <input class=\"form-control\" type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\" />
     </div>
-        <div class=\"form-group\">
-        <label for=\"password\">Password:</label>
+        <div class=\"form-group col-md-4\">
+        <label for=\"password\">Mot de passe:</label>
         <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\" />
         </div>
 
@@ -129,8 +130,9 @@ class __TwigTemplate_96cecb706355ddc2aa4a3338cca482bbdf1c93d42ccde51d6db1b9e4123
             <input type=\"hidden\" name=\"_target_path\" value=\"/account\" />
         #}
 
-        <button class=\"btn btn-primary form-group\" type=\"submit\">login</button>
+        <button class=\"btn btn-primary form-group\" type=\"submit\">Se connecter</button>
     </form>
-{% endblock %}", "security/login.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/security/login.html.twig");
+</div>
+{% endblock %}", "security/login.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/security/login.html.twig");
     }
 }

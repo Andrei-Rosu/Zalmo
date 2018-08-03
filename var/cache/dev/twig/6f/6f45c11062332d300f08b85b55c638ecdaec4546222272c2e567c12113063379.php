@@ -237,6 +237,6 @@ class __TwigTemplate_db2b796ab5f9058bd87e2e69ccba02b5d34c342d01de27b73f990b81f5e
             });
         });
     </script>
-{% endblock %}", "product/edit_product.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/templates/product/edit_product.html.twig");
+{% endblock %}", "product/edit_product.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/templates/product/edit_product.html.twig");
     }
 }

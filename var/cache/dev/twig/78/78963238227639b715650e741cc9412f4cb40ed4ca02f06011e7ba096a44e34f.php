@@ -376,6 +376,6 @@ class __TwigTemplate_5c5c35171f9d21a10c235fa7e8a14d66094ed02f9c18325bd4cb4f5b44e
         {% endfor %}
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/events.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/moijv1/vendor/symfony/web-profiler-bundle/Resources/views/Collector/events.html.twig");
+", "@WebProfiler/Collector/events.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/Zalmo/vendor/symfony/web-profiler-bundle/Resources/views/Collector/events.html.twig");
     }
 }
